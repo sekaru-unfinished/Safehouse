@@ -1,5 +1,8 @@
 import Phaser from "phaser";
 import logoImg from "../assets/logo.png";
+import testtiles from "../assets/images/testtiles.png";
+import test from "../assets/maps/test.json";
+
 
 export default class Menu extends Phaser.Scene {
   constructor() {
@@ -8,6 +11,9 @@ export default class Menu extends Phaser.Scene {
 
   preload() {
     this.load.image('logo', logoImg);
+
+    this.load.image('tiles', testtiles);
+    this.load.tilemapTiledJSON('map', test);
   }
   
   create() {
