@@ -1,8 +1,9 @@
 import Phaser from "phaser";
 import logoImg from "../assets/logo.png";
 import testtiles from "../assets/images/testtiles.png";
-import test from "../assets/maps/test.json";
 
+import level_1 from "../assets/maps/1.json";
+import level_2 from "../assets/maps/2.json";
 
 export default class Menu extends Phaser.Scene {
   constructor() {
@@ -13,7 +14,10 @@ export default class Menu extends Phaser.Scene {
     this.load.image('logo', logoImg);
 
     this.load.image('tiles', testtiles);
-    this.load.tilemapTiledJSON('map', test);
+
+    // TODO Should we load them all at once?
+    this.load.tilemapTiledJSON('level_1', level_1);
+    this.load.tilemapTiledJSON('level_2', level_2);
   }
   
   create() {
