@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 1186.894 1055.78" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <g style="" transform="matrix(0.855552, 0, 0, 1.028095, 26.880541, -2.357211)">
+    <rect style="" x="186.091" y="83.902" width="382.38" height="579.079" rx="32" ry="32"/>
+  </g>
+  <rect style="fill: rgb(255, 255, 255);" x="195.708" y="94.36" width="307.235" height="574.245" rx="32" ry="32"/>
+  <path style="" d="M 263.768 94.36 H 434.883 V 107.432 A 13.1 13.072 0 0 1 421.783 120.503 H 276.868 A 13.1 13.072 0 0 1 263.768 107.432 V 94.36 Z" bx:shape="rect 263.768 94.36 171.115 26.143 0 0 13.1 13.1 1@da1bdc55"/>
+  <g>
+    <circle style="fill: none; stroke: rgb(204, 204, 204); stroke-width: 3px;" cx="694.733" cy="210.281" r="34.159"/>
+    <g transform="matrix(1, 0, 0, 0.958837, 3.232517, 6.62725)" style="">
+      <rect x="685.272" y="168.664" width="12.457" height="8.755" style="fill: rgb(204, 204, 204);"/>
+      <rect x="690" y="160.998" width="3" height="12.92" style="stroke-width: 1.02101px; fill: rgb(204, 204, 204);"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, -0.661526, 5.28101)">
+      <circle style="fill: rgb(255, 129, 129);" cx="674.973" cy="205" r="5"/>
+      <circle style="fill: rgb(255, 244, 119);" cx="689.155" cy="205" r="5"/>
+      <circle style="fill: rgb(171, 225, 152);" cx="702.091" cy="205" r="5"/>
+      <circle style="fill: rgb(145, 197, 255);" cx="715.816" cy="205" r="5"/>
+    </g>
+  </g>
+  <g>
+    <ellipse style="stroke-width: 3px; stroke: rgb(204, 204, 204); fill: rgb(255, 244, 119);" cx="835.819" cy="293.063" rx="20" ry="20"/>
+    <g>
+      <path style="stroke-width: 3px; fill: none; stroke: rgb(204, 204, 204);" d="M 830.298 313.023 H 841.34 A 2 2 0 0 1 843.34 315.023 V 320.581 A 7.3 7.3 0 0 1 836.04 327.881 H 835.598 A 7.3 7.3 0 0 1 828.298 320.581 V 315.023 A 2 2 0 0 1 830.298 313.023 Z" bx:shape="rect 828.298 313.023 15.042 14.858 2 2 7.3 7.3 1@89c1b440"/>
+      <path style="fill: rgb(204, 204, 204);" d="M 831.769 328.258 H 839.868 V 330.131 A 1.9 1.873 0 0 1 837.968 332.004 H 833.669 A 1.9 1.873 0 0 1 831.769 330.131 V 328.258 Z" bx:shape="rect 831.769 328.258 8.099 3.746 0 0 1.9 1.9 1@a8692f40"/>
+      <line style="stroke: rgb(204, 204, 204); stroke-width: 3px;" x1="828.532" y1="320.452" x2="843.106" y2="320.452"/>
+    </g>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, 84.645723, 2.806749)">
+    <ellipse style="stroke-width: 3px; stroke: rgb(204, 204, 204); fill: none;" cx="835.819" cy="293.063" rx="20" ry="20"/>
+    <g>
+      <path style="stroke-width: 3px; fill: none; stroke: rgb(204, 204, 204);" d="M 830.298 313.023 H 841.34 A 2 2 0 0 1 843.34 315.023 V 320.581 A 7.3 7.3 0 0 1 836.04 327.881 H 835.598 A 7.3 7.3 0 0 1 828.298 320.581 V 315.023 A 2 2 0 0 1 830.298 313.023 Z" bx:shape="rect 828.298 313.023 15.042 14.858 2 2 7.3 7.3 1@89c1b440"/>
+      <path style="fill: rgb(204, 204, 204);" d="M 831.769 328.258 H 839.868 V 330.131 A 1.9 1.873 0 0 1 837.968 332.004 H 833.669 A 1.9 1.873 0 0 1 831.769 330.131 V 328.258 Z" bx:shape="rect 831.769 328.258 8.099 3.746 0 0 1.9 1.9 1@a8692f40"/>
+      <line style="stroke: rgb(204, 204, 204); stroke-width: 3px;" x1="828.532" y1="320.452" x2="843.106" y2="320.452"/>
+    </g>
+  </g>
+  <g>
+    <rect style="fill: none; stroke-width: 3px; stroke: rgb(204, 204, 204);" x="987.378" y="160.2" width="36.678" height="60.381" rx="4" ry="4"/>
+    <line style="stroke-width: 3px; stroke: rgb(204, 204, 204);" x1="987.466" y1="185.987" x2="1023.054" y2="186.163" bx:origin="0.5 0.480786"/>
+    <line style="stroke-width: 3px; stroke: rgb(204, 204, 204);" x1="996.064" y1="172.063" x2="996.064" y2="180.111"/>
+    <line style="stroke-width: 3px; stroke: rgb(204, 204, 204);" x1="996.049" y1="192.607" x2="996.049" y2="200.656"/>
+    <g transform="matrix(0.746055, 0, 0, 0.746055, 250.140472, 43.666126)" style="">
+      <path style="fill: rgb(204, 204, 204);" d="M 992.378 238 H 1000.477 V 239.873 A 1.9 1.873 0 0 1 998.577 241.746 H 994.278 A 1.9 1.873 0 0 1 992.378 239.873 V 238 Z" bx:shape="rect 992.378 238 8.099 3.746 0 0 1.9 1.9 1@d8f542d8"/>
+      <path style="fill: rgb(204, 204, 204);" d="M 1025.047 238 H 1033.146 V 239.873 A 1.9 1.873 0 0 1 1031.246 241.746 H 1026.947 A 1.9 1.873 0 0 1 1025.047 239.873 V 238 Z" bx:shape="rect 1025.047 238 8.099 3.746 0 0 1.9 1.9 1@8fe23a04"/>
+    </g>
+  </g>
+</svg>
