@@ -1,20 +1,18 @@
 import Phaser from "phaser";
+import MapManager from "../maps/MapManager";
 
 export default class Game extends Phaser.Scene {
+
   constructor() {
     super('Game');
   }
 
   create() {
+    this.mapManager = new MapManager(1, this);
+
     const camera = this.cameras.main;
+    const cameraBounds = this.mapManager.getCameraBounds();
 
- 	  const map = this.make.tilemap({key: 'map'});
-    camera.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-    
-    const tileset = map.addTilesetImage("testtiles", "tiles");
-
-    const belowLayer = map.createStaticLayer("test", tileset, 0, 0);
-   
-    this.add.text(10, 10, 'Welcome to the game', { font: '48px Arial', fill: '#fff' });
+    camera.setViewport(0, 0, cameraBounds.width, cameraBounds.height);
   }
 }
