@@ -22,7 +22,7 @@ export default class Game extends Phaser.Scene {
             key: 'player'
         });
     
-        camera.startFollow(this.playerMovement);
+        camera.startFollow(this.player);
         // this.input.on('pointerdown', () => {
         //   this.input.stopPropagation();
         //   this.mapManager.loadNextLevel();
