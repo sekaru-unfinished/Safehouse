@@ -1,6 +1,7 @@
 import Phaser from "phaser";
 import MenuScene from "./scenes/Menu";
 import GameScene from "./scenes/Game";
+import PreloaderScene from "./scenes/Preloader";
 
 const width = 1280;
 const height = 720;
@@ -11,7 +12,16 @@ window.onload = function () {
     parent: 'phaser-game',
     width,
     height,
-    scene: [MenuScene, GameScene]
+    scene: [MenuScene, GameScene],
+    physics: {
+        default: 'matter',
+        matter: {
+            gravity: {
+                y: 0
+            },
+            debug: true
+        }
+    }
   };
 
   new Phaser.Game(config);
