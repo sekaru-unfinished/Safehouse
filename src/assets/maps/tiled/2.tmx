@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="9" height="10" tilewidth="16" tileheight="16" infinite="0" nextlayerid="3" nextobjectid="1">
+ <tileset firstgid="1" name="testtiles" tilewidth="16" tileheight="16" tilecount="16" columns="4">
+  <image source="../../images/testtiles.png" width="64" height="64"/>
+ </tileset>
+ <layer id="1" name="test" width="9" height="10">
+  <data encoding="csv">
+1,2,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,
+1,1,0,0,0,0,0,1,1,
+1,1,1,1,1,1,0,1,1,
+1,1,0,0,0,0,0,1,1,
+1,1,0,1,1,1,1,1,1,
+1,1,0,1,1,1,1,1,1,
+1,1,0,0,0,0,0,1,1,
+1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1
+</data>
+ </layer>
+ <layer id="2" name="collisions" width="9" height="10">
+  <data encoding="csv">
+2,2,2,2,2,2,2,2,2,
+2,0,0,0,0,0,0,0,2,
+2,0,0,0,0,0,0,0,2,
+2,0,0,0,0,0,0,0,2,
+2,0,0,0,0,0,0,0,2,
+2,0,0,0,0,0,0,0,2,
+2,0,0,0,0,0,0,0,2,
+2,0,0,0,0,0,0,0,2,
+2,0,0,0,0,0,0,0,2,
+2,2,2,2,2,2,2,2,2
+</data>
+ </layer>
+</map>
