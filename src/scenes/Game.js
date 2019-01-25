@@ -12,9 +12,6 @@ export default class Game extends Phaser.Scene {
         this.mapManager = new MapManager(1, this);
 
         const camera = this.cameras.main;
-        const cameraBounds = this.mapManager.getCameraBounds();
-
-        camera.setViewport(0, 0, cameraBounds.width, cameraBounds.height);
 
         this.add.text(10, 10, 'Welcome to the game', { font: '48px Arial', fill: '#fff' });
 
@@ -24,6 +21,12 @@ export default class Game extends Phaser.Scene {
             y: 40,
             key: 'player'
         });
+    
+        camera.startFollow(this.playerMovement);
+        // this.input.on('pointerdown', () => {
+        //   this.input.stopPropagation();
+        //   this.mapManager.loadNextLevel();
+        // }, this);
     }
 
     preload() {
