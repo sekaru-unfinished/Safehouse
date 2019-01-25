@@ -1,7 +1,6 @@
 import Phaser from "phaser";
 import MenuScene from "./scenes/Menu";
 import GameScene from "./scenes/Game";
-import PreloaderScene from "./scenes/Preloader";
 
 const width = 1280;
 const height = 720;
