@@ -1,6 +1,6 @@
 import Phaser from "phaser";
 import MapManager from "../maps/MapManager";
-import PlayerMovement from "../gameplay/PlayerMovement";
+import Player from "../gameplay/Player";
 
 export default class Game extends Phaser.Scene {
 
@@ -15,7 +15,7 @@ export default class Game extends Phaser.Scene {
 
         this.add.text(10, 10, 'Welcome to the game', { font: '48px Arial', fill: '#fff' });
 
-        this.playerMovement = new PlayerMovement({
+        this.player = new Player({
             scene: this,
             x: 40,
             y: 40,
@@ -34,6 +34,6 @@ export default class Game extends Phaser.Scene {
     }
 
     update() {
-        this.playerMovement.handleMovement();
+        this.player.handleMovement();
     }
 }
