@@ -20,7 +20,12 @@ export default class {
     	const baseLayer = map.createStaticLayer("test", tileset, 0, 0);
     	const collisionsLayer = map.createStaticLayer("collisions", tileset, 0, 0);
 		
+		
 		this.map = map;
+		const cameraWidth = this.getCameraBounds().width;
+		const cameraHeight = this.getCameraBounds().height;
+
+		this.scene.matter.world.setBounds(0, 0, cameraWidth, cameraHeight);
 	}
 
 	loadNextLevel(){
