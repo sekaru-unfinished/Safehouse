@@ -17,9 +17,11 @@ export default class {
 		const map = this.scene.make.tilemap({key: `level_${this.level}`});
 
     	const tileset = map.addTilesetImage("testtiles", "tiles");
-    	const baseLayer = map.createStaticLayer("test", tileset, 0, 0);
-    	const collisionsLayer = map.createStaticLayer("collisions", tileset, 0, 0);
+    	const baseLayer = map.createDynamicLayer("floor", tileset, 0, 0);
+    	const collisionsLayer = map.createDynamicLayer("collisions", tileset, 0, 0);
 		
+		// collisionsLayer.setCollisionByProperty({ collides: true });
+		this.scene.matter.world.convertTilemapLayer(collisionsLayer);
 		this.map = map;
 	}
 
