@@ -1,9 +1,13 @@
+import EntityManager from '../entities/EntityManager';
+
 export default class {
 
 	constructor(level = 1, scene){
 		this.level = level;
 		this.scene = scene;
 		this.loadLevel();
+
+		this.entityManager = new EntityManager(scene, this.map);
 	}
 
 	getCameraBounds(){
@@ -19,6 +23,7 @@ export default class {
     	const tileset = map.addTilesetImage("testtiles", "tiles");
     	const baseLayer = map.createDynamicLayer("floor", tileset, 0, 0);
     	const collisionsLayer = map.createDynamicLayer("collisions", tileset, 0, 0);
+		
 		collisionsLayer.setCollisionByProperty({collides: true});
 		collisionsLayer.setCollisionFromCollisionGroup();
 	    this.scene.matter.world.convertTilemapLayer(collisionsLayer);	
