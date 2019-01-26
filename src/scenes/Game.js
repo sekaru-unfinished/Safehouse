@@ -3,9 +3,12 @@ import MapManager from "../maps/MapManager";
 import Player from "../gameplay/Player";
 
 export default class Game extends Phaser.Scene {
-
     constructor() {
         super('Game');
+    }
+
+    preload() {
+        this.load.image('player', 'src/assets/sprites/fridge.png');
     }
 
     create() {
@@ -26,10 +29,6 @@ export default class Game extends Phaser.Scene {
         //   this.input.stopPropagation();
         //   this.mapManager.loadNextLevel();
         // }, this);
-    }
-
-    preload() {
-        this.load.image('player', 'src/assets/sprites/fridge.png');
     }
 
     update() {
