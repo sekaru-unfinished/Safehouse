@@ -18,6 +18,7 @@ export default class LoseScene extends Phaser.Scene {
             font: '96px Courier',
             fill: '#ffffff'
         });
+        this.text.setOrigin(0.5);
 
         this.cameras.main.fadeIn(1000);
 
