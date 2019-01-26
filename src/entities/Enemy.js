@@ -26,7 +26,8 @@ export default class extends Phaser.Physics.Matter.Sprite {
       this.setVelocityX(0);
       this.setVelocityY(0);
    		const currentPathPoint = this.path.find((point) => point.id === this.currentPathPointIndex);
-   			
+   		let moving = false;
+
    		if(currentPathPoint){
 
 		   	const distanceToCurrentPoint = 
@@ -37,7 +38,7 @@ export default class extends Phaser.Physics.Matter.Sprite {
 	   			this.y);
 
         if(distanceToCurrentPoint > 5){
-        
+          moving = true;
           const speed = this.speed;
           if(currentPathPoint.x < this.x){
             this.setVelocityX(-speed);
@@ -53,14 +54,16 @@ export default class extends Phaser.Physics.Matter.Sprite {
         }else{
           if(currentPathPoint.finalPoint){
             this.currentPathPointIndex = 0;
+            moving = false;
           }else{
             this.currentPathPointIndex++;
+            moving = false;
           }
 
         }
    		}
 
-      const moving = this.velocity.x > 0 || this.velocity.y > 0;
+      // const moving = this.velocity.x > 0 || this.velocity.y > 0;
 
    		if(moving){
 	        this.anims.play('enemy', true);
