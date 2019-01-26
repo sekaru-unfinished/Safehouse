@@ -9,6 +9,7 @@ export default class PlayerMovement extends Phaser.Physics.Matter.Sprite {
 
         this.cursorKeys = config.scene.input.keyboard.createCursorKeys();
         this.shownAngle = this.playerAngle = 0;
+        this.setDepth(3);
     }
 
     handleMovement() {

@@ -16,6 +16,8 @@ export default class extends Phaser.Physics.Matter.Sprite {
 
         this.player = config.player;
         this.spottedPlayer = false;
+
+        this.setDepth(3);
         
         setTimeout(() => {
             this.spottedPlayer = true;
@@ -36,7 +38,7 @@ export default class extends Phaser.Physics.Matter.Sprite {
     }
 
     shootAnimUpdate(animation, frame, gameobject) {
-        if(frame.index === 5) {
+        if(frame.index === 8) {
             let bullet = this.scene.add.image(this.x, this.y, 'bullet');
             bullet.setRotation(
                 Phaser.Math.Angle.BetweenPoints(

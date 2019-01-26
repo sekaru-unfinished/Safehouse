@@ -17,8 +17,8 @@ export default class Game extends Phaser.Scene {
             'player',
             player,
             {
-                frameWidth: 32,
-                frameHeight: 32
+                frameWidth: 16,
+                frameHeight: 21
             }
         );
 
@@ -26,8 +26,8 @@ export default class Game extends Phaser.Scene {
             'enemy',
             enemy,
             { 
-                frameWidth: 32, 
-                frameHeight: 32 
+                frameWidth: 29, 
+                frameHeight: 29 
             }
         );
 
@@ -35,8 +35,8 @@ export default class Game extends Phaser.Scene {
             'enemy-shoot',
             enemyShoot,
             { 
-                frameWidth: 32, 
-                frameHeight: 32 
+                frameWidth: 29, 
+                frameHeight: 29 
             }
         );
     }
