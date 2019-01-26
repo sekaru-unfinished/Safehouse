@@ -15,7 +15,7 @@ export default class Menu extends Phaser.Scene {
     this.load.image('logo', logoImg);
 
     this.load.image('tiles', testtiles);
-    this.load.image('enemy', 'src/assets/sprites/enemy/enemy.png');
+
     this.load.spritesheet('enemy',
         enemy,
         { frameWidth: 32, frameHeight: 32 }

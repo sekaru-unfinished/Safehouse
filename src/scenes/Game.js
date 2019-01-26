@@ -37,8 +37,6 @@ export default class Game extends Phaser.Scene {
 
         camera.setViewport(0, 0, cameraBounds.width, cameraBounds.height);
 
-        this.mapManager = new MapManager(1, this);
-
         this.anims.create({
             key: 'enemy',
             frames: this.anims.generateFrameNumbers('enemy', { start: 0, end: 7 }),
@@ -54,8 +52,6 @@ export default class Game extends Phaser.Scene {
         });
         this.matter.add.sprite(this.player);
 
-        const camera = this.cameras.main;
-        camera.setZoom(2);
         camera.startFollow(this.player);
         // this.input.on('pointerdown', () => {
         //   this.input.stopPropagation();
