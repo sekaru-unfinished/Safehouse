@@ -11,14 +11,27 @@ export default class extends Phaser.Physics.Matter.Sprite {
         this.currentPathPointIndex = 0;
         this.alerted = false;
 
-        // Set the current position to be the current path
-        const currentPathPoint = this.path.find((point) => point.id === this.currentPathPointIndex);
-        this.x = currentPathPoint.x;
-        this.y = currentPathPoint.y;
-        this.currentPathPointIndex++;
-
         this.speed = 0.5;
         this.enemyAngle = this.shownAngle = 0;
+
+        this.player = config.player;
+        this.spottedPlayer = false;
+        
+        setTimeout(() => {
+            this.spottedPlayer = true;
+            this.spotPlayer();
+        }, 5000);
+    }
+
+    spotPlayer() {
+        this.anims.stop('enemy');
+        this.anims.play('enemy-shoot');
+
+        let rads = Phaser.Math.Angle.BetweenPoints(
+            new Phaser.Geom.Point(this.x, this.y),
+            new Phaser.Geom.Point(this.player.x, this.player.y)
+        )
+        this.enemyAngle = rads * (180 / Math.PI);
     }
 
     update() {
@@ -30,6 +43,8 @@ export default class extends Phaser.Physics.Matter.Sprite {
 
         this.shownAngle += (((((this.enemyAngle - this.shownAngle) % 360) + 540) % 360) - 180) * 0.1;
         this.setAngle(this.shownAngle);
+
+        if(this.spottedPlayer) return;
 
         if (currentPathPoint) {
             let rads = Phaser.Math.Angle.BetweenPoints(
