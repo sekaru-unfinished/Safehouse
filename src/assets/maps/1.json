@@ -135,6 +135,34 @@
                  "width":0,
                  "x":256,
                  "y":349.333333333333
+                }, 
+                {
+                 "height":0,
+                 "id":10,
+                 "name":"",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"enemy",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"final_point",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"path_point",
+                         "type":"int",
+                         "value":3
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":546.666666666667,
+                 "y":316
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -143,7 +171,7 @@
          "y":0
         }],
  "nextlayerid":6,
- "nextobjectid":10,
+ "nextobjectid":11,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.1",
