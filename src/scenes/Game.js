@@ -3,6 +3,7 @@ import MapManager from "../maps/MapManager";
 import player from "../assets/sprites/player.png";
 import enemy from "../assets/sprites/enemy/enemy.png";
 import enemyShoot from "../assets/sprites/enemy/enemy_shoot.png";
+import bullet from "../assets/sprites/bullet.png";
 
 export default class Game extends Phaser.Scene {
     constructor() {
@@ -10,6 +11,8 @@ export default class Game extends Phaser.Scene {
     }
 
     preload() {
+        this.load.image('bullet', bullet);
+
         this.load.spritesheet(
             'player',
             player,
@@ -85,7 +88,7 @@ export default class Game extends Phaser.Scene {
         this.anims.create({
             key: 'enemy-shoot',
             frames: this.anims.generateFrameNumbers('enemy-shoot', { start: 0, end: 11 }),
-            frameRate: 8,
+            frameRate: 12,
             repeat: 0
         });
     }

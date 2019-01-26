@@ -26,12 +26,40 @@ export default class extends Phaser.Physics.Matter.Sprite {
     spotPlayer() {
         this.anims.stop('enemy');
         this.anims.play('enemy-shoot');
+        this.on('animationupdate', this.shootAnimUpdate, this);
 
         let rads = Phaser.Math.Angle.BetweenPoints(
             new Phaser.Geom.Point(this.x, this.y),
             new Phaser.Geom.Point(this.player.x, this.player.y)
         )
         this.enemyAngle = rads * (180 / Math.PI);
+    }
+
+    shootAnimUpdate(animation, frame, gameobject) {
+        if(frame.index === 5) {
+            let bullet = this.scene.add.image(this.x, this.y, 'bullet');
+            bullet.setRotation(
+                Phaser.Math.Angle.BetweenPoints(
+                    new Phaser.Geom.Point(this.x, this.y),
+                    new Phaser.Geom.Point(this.player.x, this.player.y)
+                )
+            )
+            this.scene.tweens.add({
+                targets: bullet,
+                x: this.player.x,
+                y: this.player.y,
+                duration: 150,
+                onComplete: this.destroyBullet
+            });
+        }
+    }
+
+    destroyBullet(tween, gameObjects) {
+        gameObjects[0].scene.tweens.add({
+            targets: gameObjects[0],
+            alpha: 0,
+            duration: 200
+        });
     }
 
     update() {
