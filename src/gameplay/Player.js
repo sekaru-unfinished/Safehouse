@@ -16,26 +16,40 @@ export default class PlayerMovement extends Phaser.Physics.Matter.Sprite {
         this.setVelocityX(0);
         this.setVelocityY(0);
 
-        this.anims.play('walk', true);
+        let moving = false;
         
         if ( this.cursorKeys.up.isDown ) {
-            this.setVelocityY(-10);
+            this.setVelocityY(-1);
+            moving = true;
+            // this.anims.play('walk', true);
         }
         if (this.cursorKeys.down.isDown) {
-            this.setVelocityY(10);
+            this.setVelocityY(1);
+            moving = true;
+            // this.anims.play('walk', true);
         }
         if (this.cursorKeys.left.isDown) {
-            this.setVelocityX(-10);
+            this.setVelocityX(-1);
+            moving = true;
             this.flipX = true;
+            // this.anims.play('walk', true);
         }
         if (this.cursorKeys.right.isDown) {
-            this.setVelocityX(10);
+            this.setVelocityX(1);
+            moving = true;
             this.flipX = false;
+            // this.anims.play('walk', true);
+        }
+
+        if(moving) {
+            this.anims.play('walk');
+        } else {
+            this.anims.stop('walk');
         }
     }
 
     handleRotation(mouseX, mouseY) {
-        this.setAngle(180);
+        this.setAngle(Math.atan2(mouseY - this.y, mouseX - this.x));
         console.log(this.rotation);
     }
 }
