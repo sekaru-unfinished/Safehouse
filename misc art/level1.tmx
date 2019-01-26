@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="1">
+ <tileset firstgid="1" source="tilesets/booglehome.tsx"/>
+ <tileset firstgid="2" source="tilesets/boomba.tsx"/>
+ <tileset firstgid="3" source="tilesets/camera.tsx"/>
+ <tileset firstgid="4" source="tilesets/door.tsx"/>
+ <tileset firstgid="5" source="tilesets/fridge.tsx"/>
+ <tileset firstgid="6" source="tilesets/redcarpet.tsx"/>
+ <tileset firstgid="7" source="tilesets/smartdoor.tsx"/>
+ <tileset firstgid="8" source="tilesets/table.tsx"/>
+ <tileset firstgid="9" source="tilesets/wall.tsx"/>
+ <tileset firstgid="10" source="tilesets/washingmachine.tsx"/>
+ <tileset firstgid="11" name="woodfloor" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="woodfloor.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="12" source="tilesets/marblefloor.tsx"/>
+ <tileset firstgid="13" source="tilesets/wallcorner.tsx"/>
+ <layer id="1" name="Tile Layer 1" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJzjYWBg4EHDbFgwuprBpo7WGJs7sLmFUnUAqLYDWw==
+  </data>
+ </layer>
+ <layer id="2" name="Tile Layer 2" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYEAFnAyYYCDFgHgBlL0AhHmR2DA5qNgBNL0ofELihNQB7TgAFEvAgsk1bwEnFgwAbWEP4w==
+  </data>
+ </layer>
+ <layer id="3" name="Tile Layer 3" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYIAADgZMwIVFjFLARAMzBztgZWBYQKxaADkUALo=
+  </data>
+ </layer>
+ <layer id="4" name="Tile Layer 4" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYIAARoZRMBgAAAMYAAI=
+  </data>
+ </layer>
+</map>
