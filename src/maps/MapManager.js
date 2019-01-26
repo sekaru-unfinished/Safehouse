@@ -23,14 +23,12 @@ export default class {
 		collisionsLayer.setCollisionFromCollisionGroup();
 	    this.scene.matter.world.convertTilemapLayer(collisionsLayer);	
 
-		this.scene.matter.world.createDebugGraphic();
 		this.map = map;
 
 		const cameraWidth = this.getCameraBounds().width;
 		const cameraHeight = this.getCameraBounds().height;
 
 		this.scene.matter.world.setBounds(0, 0, cameraWidth, cameraHeight);
-		console.log(this.scene)
 	}
 
 	loadNextLevel(){
