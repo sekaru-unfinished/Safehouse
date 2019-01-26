@@ -40,4 +40,8 @@ export default class {
 		this.level++;
 		this.loadLevel();
 	}
+
+	getEntityManager(){
+		return this.entityManager;
+	}
 }
