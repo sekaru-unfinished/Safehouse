@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="1">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="1">
  <tileset firstgid="1" source="tilesets/booglehome.tsx"/>
  <tileset firstgid="2" source="tilesets/boomba.tsx"/>
  <tileset firstgid="3" source="tilesets/camera.tsx"/>
@@ -20,9 +20,9 @@
    eJzjYWBg4EHDbFgwuprBpo7WGJs7sLmFUnUAqLYDWw==
   </data>
  </layer>
- <layer id="2" name="Tile Layer 2" width="10" height="10">
+ <layer id="2" name="Walls" width="10" height="10">
   <data encoding="base64" compression="zlib">
-   eJxjYEAFnAyYYCDFgHgBlL0AhHmR2DA5qNgBNL0ofELihNQB7TgAFEvAgsk1bwEnFgwAbWEP4w==
+   eJzjZGA4wIAEOBkwAScED4g6XgaGBSxAtUD2AhDmhYgvgGF2oBwvdvMOYDESpzghdbwQNyRgwSjqgG5NINK8BZxYMAD9/BT6
   </data>
  </layer>
  <layer id="3" name="Tile Layer 3" width="10" height="10">
@@ -33,6 +33,11 @@
  <layer id="4" name="Tile Layer 4" width="10" height="10">
   <data encoding="base64" compression="zlib">
    eJxjYIAARoZRMBgAAAMYAAI=
+  </data>
+ </layer>
+ <layer id="5" name="Cameras" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjZmBIYCAAmAkpGAVUAcBwXgAAoBABCg==
   </data>
  </layer>
 </map>
