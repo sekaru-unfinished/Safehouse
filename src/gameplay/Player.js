@@ -8,7 +8,6 @@ export default class PlayerMovement extends Phaser.Physics.Matter.Sprite {
         this.scene.add.existing(this);
 
         this.cursorKeys = config.scene.input.keyboard.createCursorKeys();
-
     }
 
     handleMovement() {
@@ -20,36 +19,32 @@ export default class PlayerMovement extends Phaser.Physics.Matter.Sprite {
         
         if ( this.cursorKeys.up.isDown ) {
             this.setVelocityY(-1);
+            this.setAngle(-90);
             moving = true;
-            // this.anims.play('walk', true);
+            this.anims.play('walk', true);
         }
         if (this.cursorKeys.down.isDown) {
             this.setVelocityY(1);
+            this.setAngle(90);
             moving = true;
-            // this.anims.play('walk', true);
+            this.anims.play('walk', true);
         }
         if (this.cursorKeys.left.isDown) {
             this.setVelocityX(-1);
+            this.setAngle(180);
             moving = true;
-            this.flipX = true;
-            // this.anims.play('walk', true);
+            this.anims.play('walk', true);
         }
         if (this.cursorKeys.right.isDown) {
             this.setVelocityX(1);
+            this.setAngle(0);
             moving = true;
-            this.flipX = false;
-            // this.anims.play('walk', true);
+            this.anims.play('walk', true);
         }
 
-        if(moving) {
-            this.anims.play('walk');
-        } else {
+        if(!moving) {
             this.anims.stop('walk');
+            this.setFrame(0);
         }
-    }
-
-    handleRotation(mouseX, mouseY) {
-        this.setAngle(Math.atan2(mouseY - this.y, mouseX - this.x));
-        console.log(this.rotation);
     }
 }
