@@ -2,6 +2,7 @@ import Phaser from "phaser";
 import MenuScene from "./scenes/Menu";
 import GameScene from "./scenes/Game";
 import UIScene from "./scenes/UI";
+import LoseScene from "./scenes/Lose";
 
 const width = 1280;
 const height = 720;
@@ -12,7 +13,7 @@ window.onload = function () {
     parent: 'phaser-game',
     width,
     height,
-    scene: [MenuScene, GameScene, UIScene],
+    scene: [MenuScene, GameScene, UIScene, LoseScene],
     physics: {
         default: 'matter',
         matter: {
