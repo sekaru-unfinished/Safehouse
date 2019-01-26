@@ -20,20 +20,31 @@ export default class Menu extends Phaser.Scene {
   }
   
   create() {
-    const logo = this.add.image(400, 150, 'logo');
-  
-    this.tweens.add({
-      targets: logo,
-      y: 450,
-      duration: 2000,
-      ease: 'Power2',
-      yoyo: true,
-      loop: -1
+
+    const width = this.sys.canvas.width;
+    const height = this.sys.canvas.height;
+    
+    let graphics = this.add.graphics();
+
+    graphics.fillStyle(0x2f4f4f, 1);
+    graphics.fillRect(0, 0, width, height);
+
+    this.text = this.add.text(width / 2, 50, "Name of the game", {
+        font: '50px Courier',
+        fill: '#ffffff'
+    });
+    this.textPlay = this.add.text(width / 2, height - 200, "Press SPACEBAR to play", {
+        font: '30px monospace',
+        fill: '#ffffff'
     });
 
-    this.input.on('pointerdown', () => {
-      this.input.stopPropagation();
-      this.scene.switch('Game');
+    this.text.setOrigin(0.5);
+    this.textPlay.setOrigin(0.5);
+
+    this.cameras.main.fadeIn(1000);
+
+    this.input.keyboard.on('keydown-SPACE', function(event) {
+        this.scene.switch('Game');
     }, this);
   }
 }
