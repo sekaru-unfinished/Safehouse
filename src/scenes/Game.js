@@ -27,7 +27,6 @@ export default class Game extends Phaser.Scene {
         // camera.setViewport(0, 0, cameraBounds.width, cameraBounds.height);
 
         this.add.text(10, 10, 'Welcome to the game', { font: '48px Arial', fill: '#fff' });
-
         this.player = new Player({
             scene: this,
             x: 40,
@@ -38,7 +37,6 @@ export default class Game extends Phaser.Scene {
         this.phone = this.add.image(0, 0, 'phone');
         this.phone.setScale(0.75);
         const speaker = this.add.image(0, 0, 'speaker_off').setInteractive();
-        speaker.setScale(1.25);
         
         this.input.on('gameobjectdown', this.onPhoneClick);
 
