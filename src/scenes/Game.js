@@ -44,5 +44,6 @@ export default class Game extends Phaser.Scene {
 
     update() {
         this.player.handleMovement();
+        this.mapManager.getEntityManager().update();
     }
 }
