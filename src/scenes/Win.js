@@ -1,8 +1,8 @@
 import Phaser from 'phaser';
 
-export default class LoseScene extends Phaser.Scene {
+export default class WinScene extends Phaser.Scene {
     constructor() {
-        super('LoseScene');
+        super('WinScene');
     }
 
     create() {
@@ -14,10 +14,12 @@ export default class LoseScene extends Phaser.Scene {
         graphics.fillStyle(0x2f4f4f, 1);
         graphics.fillRect(0, 0, width, height);
 
-        this.text = this.add.text(width / 2, height + 100, "You lost!", {
+        this.text = this.add.text(width / 2, height + 100, "Intruders evaded!", {
             font: '96px Courier',
-            fill: '#ffffff'
+            fill: '#ffd700',
+            align: 'center'
         });
+        this.text.setOrigin(0.5);
 
         this.cameras.main.fadeIn(1000);
 
