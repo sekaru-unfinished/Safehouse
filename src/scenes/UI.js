@@ -11,20 +11,19 @@ export default class UI extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('phone', 'src/assets/images/phone.png');
+    this.load.image('phone', 'src/assets/images/phone.svg');
     this.load.image('speaker_off', 'src/assets/images/icons/speaker_off.svg');
     this.load.image('speaker_on', 'src/assets/images/icons/speaker_on.svg');
   }
 
   create() {
     this.phone = this.add.image(0, 0, 'phone');
-    this.phone.setScale(0.75);
 
     let speaker = this.add.image(0, 0, 'speaker_off').setInteractive();
 
     const phoneHiddenY = this.sys.game.canvas.height + this.phone.height;
-    const phoneActiveY = this.sys.game.canvas.height - this.phone.height / 2 + 30;
-    this.phoneContainer = this.add.container(this.phone.width / 2, phoneHiddenY);
+    const phoneActiveY = this.sys.game.canvas.height - this.phone.height / 2 - 10;
+    this.phoneContainer = this.add.container(this.phone.width / 2 + 10, phoneHiddenY);
 
     this.phoneContainer.add([
       this.phone,
