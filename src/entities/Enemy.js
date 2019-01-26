@@ -66,9 +66,9 @@ export default class extends Phaser.Physics.Matter.Sprite {
       // const moving = this.velocity.x > 0 || this.velocity.y > 0;
 
    		if(moving){
-	        this.anims.play('enemy', true);
+	       this.anims.play('enemy', true);
    		}else{
-   			this.anims.stop('enemy');
+   			  this.anims.stop('enemy');
    		}
 
    		if(!this.alerted){
