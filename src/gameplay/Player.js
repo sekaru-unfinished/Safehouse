@@ -15,6 +15,8 @@ export default class PlayerMovement extends Phaser.Physics.Matter.Sprite {
         this.setAngle(0);
         this.setVelocityX(0);
         this.setVelocityY(0);
+
+        this.anims.play('walk', true);
         
         if ( this.cursorKeys.up.isDown ) {
             this.setVelocityY(-10);
@@ -24,9 +26,16 @@ export default class PlayerMovement extends Phaser.Physics.Matter.Sprite {
         }
         if (this.cursorKeys.left.isDown) {
             this.setVelocityX(-10);
+            this.flipX = true;
         }
         if (this.cursorKeys.right.isDown) {
             this.setVelocityX(10);
+            this.flipX = false;
         }
+    }
+
+    handleRotation(mouseX, mouseY) {
+        this.setAngle(180);
+        console.log(this.rotation);
     }
 }
