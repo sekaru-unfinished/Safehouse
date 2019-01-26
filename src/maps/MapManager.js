@@ -1,40 +1,47 @@
+import EntityManager from '../entities/EntityManager';
+
 export default class {
 
-  constructor(level = 1, scene) {
-    this.level = level;
-    this.scene = scene;
-    this.loadLevel();
-  }
+	constructor(level = 1, scene){
+		this.level = level;
+		this.scene = scene;
+		this.loadLevel();
 
-  getCameraBounds() {
-    return {
-      width: this.map.widthInPixels,
-      height: this.map.heightInPixels
-    }
-  }
+		this.entityManager = new EntityManager(scene, this.map);
+	}
 
-  loadLevel() {
-    const map = this.scene.make.tilemap({ key: `level_${this.level}` });
+	getCameraBounds(){
+		return {
+			width: this.map.widthInPixels,
+			height: this.map.heightInPixels
+		}
+	}
 
-    const tileset = map.addTilesetImage("testtiles", "tiles");
-    const baseLayer = map.createDynamicLayer("floor", tileset, 0, 0);
-    const collisionsLayer = map.createDynamicLayer("collisions", tileset, 0, 0);
-    collisionsLayer.setCollisionByProperty({ collides: true });
-    collisionsLayer.setCollisionFromCollisionGroup();
-    this.scene.matter.world.convertTilemapLayer(collisionsLayer);
+	loadLevel(){
+		const map = this.scene.make.tilemap({key: `level_${this.level}`});
+    
+    	const tileset = map.addTilesetImage("testtiles", "tiles");
+    	const baseLayer = map.createDynamicLayer("floor", tileset, 0, 0);
+    	const collisionsLayer = map.createDynamicLayer("collisions", tileset, 0, 0);
+		
+		collisionsLayer.setCollisionByProperty({collides: true});
+		collisionsLayer.setCollisionFromCollisionGroup();
+	    this.scene.matter.world.convertTilemapLayer(collisionsLayer);	
 
-    this.scene.matter.world.createDebugGraphic();
-    this.map = map;
+		this.map = map;
 
-    const cameraWidth = this.getCameraBounds().width;
-    const cameraHeight = this.getCameraBounds().height;
+		const cameraWidth = this.getCameraBounds().width;
+		const cameraHeight = this.getCameraBounds().height;
 
-    this.scene.matter.world.setBounds(0, 0, cameraWidth, cameraHeight);
-    console.log(this.scene)
-  }
+		this.scene.matter.world.setBounds(0, 0, cameraWidth, cameraHeight);
+	}
 
-  loadNextLevel() {
-    this.level++;
-    this.loadLevel();
-  }
+	loadNextLevel(){
+		this.level++;
+		this.loadLevel();
+	}
+
+	getEntityManager(){
+		return this.entityManager;
+	}
 }
