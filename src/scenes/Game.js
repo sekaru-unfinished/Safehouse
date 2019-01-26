@@ -1,7 +1,8 @@
 import Phaser from "phaser";
 import MapManager from "../maps/MapManager";
-import Player from "../gameplay/Player";
-import Enemy from "../entities/Enemy";
+import player from "../assets/sprites/player.png";
+import enemy from "../assets/sprites/enemy/enemy.png";
+import enemyShoot from "../assets/sprites/enemy/enemy_shoot.png";
 
 export default class Game extends Phaser.Scene {
     constructor() {
@@ -11,31 +12,57 @@ export default class Game extends Phaser.Scene {
     preload() {
         this.load.spritesheet(
             'player',
-            'src/assets/sprites/player.png',
+            player,
             {
                 frameWidth: 32,
                 frameHeight: 32
             }
         );
+
+        this.load.spritesheet(
+            'enemy',
+            enemy,
+            { 
+                frameWidth: 32, 
+                frameHeight: 32 
+            }
+        );
+
+        this.load.spritesheet(
+            'enemy-shoot',
+            enemyShoot,
+            { 
+                frameWidth: 32, 
+                frameHeight: 32 
+            }
+        );
     }
 
     create() {
-        this.anims.create({
-            key: 'walk',
-            frames: this.anims.generateFrameNumbers(
-                'player',
-                {start: 0, end: 7}
-            ),
-            frameRate: 10,
-            repeat: -1
-        })
+        this.createAnims();
 
         this.mapManager = new MapManager(1, this);
-       
+
         const camera = this.cameras.main;
         const cameraBounds = this.mapManager.getCameraBounds();
 
         camera.setViewport(0, 0, cameraBounds.width, cameraBounds.height);
+
+        camera.startFollow(this.mapManager.getEntityManager().player);
+
+        // this.input.on('pointerdown', () => {
+        //   this.input.stopPropagation();
+        //   this.mapManager.loadNextLevel();
+        // }, this);
+    }
+
+    createAnims() {
+        this.anims.create({
+            key: 'walk',
+            frames: this.anims.generateFrameNumbers('player', { start: 0, end: 7 }),
+            frameRate: 10,
+            repeat: -1
+        });
 
         this.anims.create({
             key: 'enemy',
@@ -44,23 +71,15 @@ export default class Game extends Phaser.Scene {
             repeat: -1
         });
 
-        this.player = new Player({
-            scene: this,
-            x: 40,
-            y: 40,
-            key: 'player'
+        this.anims.create({
+            key: 'enemy-shoot',
+            frames: this.anims.generateFrameNumbers('enemy-shoot', { start: 0, end: 11 }),
+            frameRate: 8,
+            repeat: 0
         });
-        this.matter.add.sprite(this.player);
-
-        camera.startFollow(this.player);
-        // this.input.on('pointerdown', () => {
-        //   this.input.stopPropagation();
-        //   this.mapManager.loadNextLevel();
-        // }, this);
     }
 
     update() {
-        this.player.handleMovement();
         this.mapManager.getEntityManager().update();
     }
 }
