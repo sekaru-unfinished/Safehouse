@@ -7,7 +7,7 @@ import LoseScene from "./scenes/Lose";
 const width = 1280;
 const height = 720;
 
-window.onload = function () {
+window.onload = () => {
   const config = {
     type: Phaser.AUTO,
     parent: 'phaser-game',
@@ -22,7 +22,8 @@ window.onload = function () {
             },
             debug: true
         }
-    }
+    },
+    pixelArt: true
   };
 
   new Phaser.Game(config);
