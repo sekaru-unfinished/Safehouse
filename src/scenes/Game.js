@@ -19,8 +19,8 @@ export default class Game extends Phaser.Scene {
             repeat: -1
         })
 
-        
         this.mapManager = new MapManager(1, this);
+       
         const camera = this.cameras.main;
         const cameraBounds = this.mapManager.getCameraBounds();
 
@@ -34,10 +34,7 @@ export default class Game extends Phaser.Scene {
         });
         this.matter.add.sprite(this.player);
 
-        this.mapManager = new MapManager(1, this);
-
-        const camera = this.cameras.main;
-
+       
         camera.startFollow(this.player);
         // this.input.on('pointerdown', () => {
         //   this.input.stopPropagation();
@@ -58,15 +55,5 @@ export default class Game extends Phaser.Scene {
 
     update() {
         this.player.handleMovement();
-        this.pointerMove(this.input.activePointer, this.player);
-    }
-
-    pointerMove(pointer, sprite) {
-        var angleToPointer = Phaser.Math.Angle.BetweenPoints(sprite, pointer);
-        var angleDelta = angleToPointer - sprite.rotation;
-        
-        angleDelta = Math.atan2(Math.sin(angleDelta), Math.cos(angleDelta));
-
-        sprite.setAngle(angleToPointer * (180 / Math.PI));
     }
 }
