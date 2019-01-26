@@ -58,10 +58,7 @@ export default class Game extends Phaser.Scene {
 
     update() {
         this.player.handleMovement();
-
-
         this.pointerMove(this.input.activePointer, this.player);
-        
     }
 
     pointerMove(pointer, sprite) {
@@ -71,6 +68,5 @@ export default class Game extends Phaser.Scene {
         angleDelta = Math.atan2(Math.sin(angleDelta), Math.cos(angleDelta));
 
         sprite.setAngle(angleToPointer * (180 / Math.PI));
-        
     }
 }
