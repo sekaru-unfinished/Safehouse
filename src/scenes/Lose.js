@@ -6,14 +6,31 @@ export default class LoseScene extends Phaser.Scene {
     }
 
     create() {
+        const width = this.sys.canvas.width;
+        const height = this.sys.canvas.height;
+        
         let graphics = this.add.graphics();
 
-        graphics.fillStyle(0xff3300, 1);
+        graphics.fillStyle(0x2f4f4f, 1);
+        graphics.fillRect(0, 0, width, height);
 
-        graphics.fillRect(40,40,300,300);
-        this.add.text(120, 120, "You lost!", {
+        this.text = this.add.text(width / 2, height + 100, "You lost!", {
             font: '96px Courier',
-            fill: '#000000'
+            fill: '#ffffff'
         });
+
+        this.cameras.main.fadeIn(1000);
+
+        this.tween = this.tweens.add({
+            targets: this.text,
+            y: height / 2,
+            duration: 1500,
+            completeDelay: 800,
+            ease: 'Power2',
+            delay: 500,
+            repeat: 0,
+            loop: 0,
+            yoyo: false
+        })
     }
 }
