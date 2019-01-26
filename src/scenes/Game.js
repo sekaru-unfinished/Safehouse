@@ -9,19 +9,18 @@ export default class Game extends Phaser.Scene {
     }
 
     create() {
-        this.mapManager = new MapManager(1, this);
-
-        const camera = this.cameras.main;
-
-        this.add.text(10, 10, 'Welcome to the game', { font: '48px Arial', fill: '#fff' });
-
         this.player = new Player({
             scene: this,
             x: 40,
             y: 40,
             key: 'player'
         });
-    
+        this.matter.add.sprite(this.player);
+
+        this.mapManager = new MapManager(1, this);
+
+        const camera = this.cameras.main;
+
         camera.startFollow(this.player);
         // this.input.on('pointerdown', () => {
         //   this.input.stopPropagation();
