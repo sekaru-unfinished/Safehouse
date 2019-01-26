@@ -3,7 +3,6 @@ import MapManager from "../maps/MapManager";
 import Player from "../gameplay/Player";
 import Enemy from "../entities/Enemy";
 
-
 export default class Game extends Phaser.Scene {
 
     constructor() {
@@ -28,13 +27,6 @@ export default class Game extends Phaser.Scene {
             key: 'player'
         });
         this.matter.add.sprite(this.player);
-
-        this.enemy = new Enemy({
-            scene: this,
-            x: 80,
-            y: 40,
-        });
-        this.matter.add.sprite(this.enemy);
 
         const camera = this.cameras.main;
         camera.setZoom(2);
