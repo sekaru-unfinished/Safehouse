@@ -44,9 +44,8 @@ export default class Game extends Phaser.Scene {
         this.mapManager = new MapManager(1, this);
 
         const camera = this.cameras.main;
+        camera.setZoom(3);
         const cameraBounds = this.mapManager.getCameraBounds();
-
-        camera.setViewport(0, 0, cameraBounds.width, cameraBounds.height);
 
         camera.startFollow(this.mapManager.getEntityManager().player);
 
