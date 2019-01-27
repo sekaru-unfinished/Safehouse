@@ -72,7 +72,7 @@ export default class UI extends Phaser.Scene {
   }
 
   createPhone() {
-    this.phoneContainer = this.add.container(this.phone.width / 2 + 20, this.phoneHiddenY);
+    this.phoneContainer = this.add.container(this.phone.width / 2 + 60, this.phoneHiddenY);
     this.phoneContainer.add(this.phone);
   }
 
