@@ -89,27 +89,31 @@ export default class {
             
                     const roomba = new Roomba(this.scene, value.x, value.y, directionProperty.value);
                     this.scene.matter.add.sprite(roomba);
-                    
                     interactable = roomba;
+                    
+                    break;
                 case "fridge":
                     // Get the direction property for this interactable
         
                     const fridge = new Fridge(this.scene, value.x, value.y);
                     this.scene.matter.add.sprite(fridge);
-                    
                     interactable = fridge;
+                    
+                    break;
                 case "smart door":
                     // Get the direction property for this interactable
         
                     const door = new SmartDoor(this.scene, value.x, value.y);
                     this.scene.matter.add.sprite(door);
-                    
                     interactable = door;
+                    
+                    break;
                 case "google home":
                     const googleHome = new GoogleHome(this.scene, value.x, value.y);
                     this.scene.matter.add.sprite(googleHome);
-                    
                     interactable = googleHome;
+                    
+                    break;
                 default:
                     break;
             }
