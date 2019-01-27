@@ -9,12 +9,13 @@ export default class LoseScene extends Phaser.Scene {
         const width = this.sys.canvas.width;
         const height = this.sys.canvas.height;
         
+        let textXPosition = width / 2;
         let graphics = this.add.graphics();
 
         graphics.fillStyle(0x2f4f4f, 1);
         graphics.fillRect(0, 0, width, height);
 
-        this.text = this.add.text(width / 2, height + 100, "You lost!", {
+        this.text = this.add.text(textXPosition, height + 100, "You are dead!", {
             font: '96px Courier',
             fill: '#ffffff'
         });
@@ -32,6 +33,12 @@ export default class LoseScene extends Phaser.Scene {
             repeat: 0,
             loop: 0,
             yoyo: false
-        })
+        });
+
+        this.restartText = this.add.text(textXPosition, height + 100, "Press any key to restart", {
+            font: '30px monospace',
+            fill: '#ffffff'
+        });
+        this.restartText.setOrigin(0.5);
     }
 }
