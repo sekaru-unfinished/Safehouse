@@ -1,6 +1,7 @@
 import Enemy from "./Enemy";
 import Player from "./Player";
 import Roomba from './interactables/Roomba';
+import Fridge from './interactables/Fridge';
 
 export default class {
 
@@ -87,6 +88,13 @@ export default class {
                     const roomba = new Roomba(this.scene, value.x, value.y, directionProperty.value);
                     this.scene.matter.add.sprite(roomba);
                     
+                    return roomba;
+                case "fridge":
+                // Get the direction property for this interactable
+        
+                const fridge = new Fridge(this.scene, value.x, value.y);
+                this.scene.matter.add.sprite(fridge);
+                
                     return roomba;
                 default:
                     break;
