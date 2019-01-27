@@ -47,6 +47,25 @@ export default class {
 
     triggerLureForRoom(indexOfInteractable, enemies){
         const interactable = this.interactables[indexOfInteractable];
-      interactable.trigger(enemies);
+       interactable.trigger(enemies);
+    }
+    
+    getDoor() {
+      for(let interactable of this.interactables) {
+        if(interactable.type === "smart_door") return interactable;
+      }
+      return null;
+    }
+
+    enemyTrappedInRoomCount(enemies) {
+      if(!this.getDoor()) return 0;
+
+      let count = 0;
+      for(let enemy of enemies) {
+        if(Phaser.Geom.Rectangle.Overlaps(enemy.getBounds(), this.overlay) && !enemy.injured && this.getDoor().closed()) {
+          count++;
+        }
+      }
+      return count;
     }
 }

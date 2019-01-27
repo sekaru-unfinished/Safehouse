@@ -32,7 +32,7 @@ export default class Menu extends Phaser.Scene {
     graphics.fillStyle(0x2f4f4f, 1);
     graphics.fillRect(0, 0, width, height);
 
-    this.text = this.add.text(textXPosition, 150, "Name of the game", {
+    this.text = this.add.text(textXPosition, 150, "SAFEHOUSE", {
         font: '50px Courier',
         fill: '#ffffff'
     });

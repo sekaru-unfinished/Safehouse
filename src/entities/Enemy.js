@@ -20,8 +20,14 @@ export default class extends Phaser.Physics.Matter.Sprite {
         this.player = config.player;
         this.spottedPlayer = false;
 
-        this.setDepth(3);
+        this.body.collisionFilter.group = -1
 
+        this.setDepth(3);
+        
+        // setTimeout(() => {
+        //     this.spottedPlayer = true;
+        //     this.spotPlayer();
+        // }, 5000);
     }
 
     spotPlayer() {
