@@ -2,6 +2,7 @@ import Enemy from "./Enemy";
 import Player from "./Player";
 import Roomba from './interactables/Roomba';
 import Fridge from './interactables/Fridge';
+import SmartDoor from './interactables/SmartDoor';
 
 export default class {
 
@@ -10,7 +11,8 @@ export default class {
         this.map = map;
 
         this.enemies = [];
-
+        this.interactables = [];
+        
         this.loadPlayer();
         this.loadEnemies(map);
         this.loadInteractables(map);
@@ -77,6 +79,7 @@ export default class {
             const typeProperty = value.properties.find(
                 (property) => property.name === "type");
 
+            let interactable = null;
             switch(typeProperty.value){
                 case "roomba":
                     // Get the direction property for this interactable
@@ -86,21 +89,26 @@ export default class {
                     const roomba = new Roomba(this.scene, value.x, value.y, directionProperty.value);
                     this.scene.matter.add.sprite(roomba);
                     
-                    return roomba;
+                    interactable = roomba;
                 case "fridge":
-                // Get the direction property for this interactable
+                    // Get the direction property for this interactable
         
-                const fridge = new Fridge(this.scene, value.x, value.y);
-                this.scene.matter.add.sprite(fridge);
-                
-                    return roomba;
+                    const fridge = new Fridge(this.scene, value.x, value.y);
+                    this.scene.matter.add.sprite(fridge);
+                    
+                    interactable =  fridge;
+                case "smart door":
+                    // Get the direction property for this interactable
+        
+                    const door = new SmartDoor(this.scene, value.x, value.y);
+                    this.scene.matter.add.sprite(door);
+                    
+                    interactable =  door;
                 default:
                     break;
             }
-
-            this.interactables = array;
+            this.interactables.push(interactable);
         });
-
     }
 
     update() {
@@ -114,5 +122,9 @@ export default class {
 
     getPlayer(){
     	return this.player;
+    }
+
+    getInteractables(){
+        return this.interactables;
     }
 }

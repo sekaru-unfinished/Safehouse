@@ -12,6 +12,8 @@ export default class {
         this.graphics.setDepth(4);
         this.overlay = new Phaser.Geom.Rectangle(this.x, this.y, this.width, this.height);
         this.shownAlpha = 1;
+
+        this.interactables = [];
     }
 
     shouldRoomRevealForPlayer(player) {
@@ -20,6 +22,14 @@ export default class {
         } else {
             this.showRoom = true;
         }
+    }
+
+    addInteractableIfCollides(interactable){
+    	if(interactable){
+	    	if (Phaser.Geom.Rectangle.Overlaps(interactable.getBounds(), this.overlay)) {
+            	this.interactables.push(interactable);
+        	}
+    	}
     }
 
     render() {

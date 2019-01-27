@@ -233,8 +233,26 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":31.75,
-                 "y":4.75
+                 "x":191.75,
+                 "y":236.083333333333
+                }, 
+                {
+                 "height":0,
+                 "id":23,
+                 "name":"",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"smart door"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":79.3333333333333,
+                 "y":152.666666666667
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -319,8 +337,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":48,
-                 "y":184
+                 "x":49.3333333333333,
+                 "y":213.333333333333
                 }, 
                 {
                  "height":0,
@@ -380,7 +398,7 @@
          "y":0
         }],
  "nextlayerid":14,
- "nextobjectid":23,
+ "nextobjectid":24,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.1",

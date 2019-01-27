@@ -2,7 +2,7 @@ import Room from './Room';
 
 export default class{
 
-	constructor(scene, map){
+	constructor(scene, map, interactables){
 		this.map = map;
 	
 		this.rooms = [];
@@ -18,7 +18,9 @@ export default class{
         this.rooms = this.rooms.map((room) => {
             // Remap the rooms to make more sense and be renderable
             const roomIdProperty = room.properties.find((property) => property.name == "room");
-         	return new Room(
+
+
+            const createdRoom = new Room(
          		scene,
          		room.x,
          		room.y,
@@ -26,6 +28,13 @@ export default class{
          		room.height,
          		roomIdProperty.value,
          		this.graphics);
+
+         	// Check if the room collides with any interactables and add them to the room if they do
+         	for(let interactable of interactables){
+         		createdRoom.addInteractableIfCollides(interactable);
+         	}
+
+         	return createdRoom;
         })
 	}
 

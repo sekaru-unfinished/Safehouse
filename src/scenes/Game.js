@@ -7,6 +7,7 @@ import bullet from "../assets/sprites/bullet.png";
 import boomba from "../assets/sprites/boomba.png";
 import fridgeNoDoor from "../assets/sprites/fridge_no_door.png";
 import fridgeDoor from "../assets/sprites/fridge_door.png";
+import smartDoor from "../assets/sprites/smartdoor.png";
 
 export default class Game extends Phaser.Scene {
     constructor() {
@@ -18,6 +19,7 @@ export default class Game extends Phaser.Scene {
         this.load.image('boomba', boomba);
         this.load.image('fridge_no_door', fridgeNoDoor);
         this.load.image('fridge_door', fridgeDoor);
+        this.load.image('smart_door', smartDoor);
 
         this.load.spritesheet(
             'player',
