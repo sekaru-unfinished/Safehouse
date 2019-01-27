@@ -5,6 +5,8 @@ import enemy from "../assets/sprites/enemy/enemy.png";
 import enemyShoot from "../assets/sprites/enemy/enemy_shoot.png";
 import bullet from "../assets/sprites/bullet.png";
 import boomba from "../assets/sprites/boomba.png";
+import fridgeNoDoor from "../assets/sprites/fridge_no_door.png";
+import fridgeDoor from "../assets/sprites/fridge_door.png";
 
 export default class Game extends Phaser.Scene {
     constructor() {
@@ -14,6 +16,8 @@ export default class Game extends Phaser.Scene {
     preload() {
         this.load.image('bullet', bullet);
         this.load.image('boomba', boomba);
+        this.load.image('fridge_no_door', fridgeNoDoor);
+        this.load.image('fridge_door', fridgeDoor);
 
         this.load.spritesheet(
             'player',

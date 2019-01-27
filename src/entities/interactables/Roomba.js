@@ -19,7 +19,7 @@ export default class extends Interactable{
 				this.down = true;
 		}
 
-		this.triggered();
+		// this.triggered();
 	}
 
 	triggered(){
