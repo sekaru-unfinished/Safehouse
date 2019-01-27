@@ -5,7 +5,7 @@ export default class extends Interactable{
 	constructor(scene, x, y, direction){
 		super({scene, x, y, key: 'smart_door'});
 		this.setStatic(true);
-		this.triggered();
+		// this.triggered();
 	}
 
 	triggered(){
