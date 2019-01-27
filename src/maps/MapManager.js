@@ -27,8 +27,8 @@ export default class {
 
     collisionsLayer.setCollisionByProperty({ collides: true });
     collisionsLayer.setCollisionFromCollisionGroup();
-    this.scene.matter.world.convertTilemapLayer(collisionsLayer);
-
+    this.mapCollisions = this.scene.matter.world.convertTilemapLayer(collisionsLayer);
+    console.log(this.mapCollisions);
     this.map = map;
 
     const cameraWidth = this.getCameraBounds().width;
@@ -38,7 +38,14 @@ export default class {
   }
 
   update() {
+
     this.entityManager.update();
+    
+    for(let enemy of 
+      this.entityManager.enemies){
+        this.rayCastToPlayer(enemy);
+      }
+
     this.roomManager.revealRoomsForPlayer(this.entityManager.getPlayer());
     this.roomManager.render();
 
@@ -49,6 +56,19 @@ export default class {
     if(enemiesLeft === 0) {
       this.scene.scene.switch('WinScene');
     }
+  }
+  
+  rayCastToPlayer(enemy){
+    const player = this.entityManager.getPlayer();
+    const bodies = this.mapCollisions.world.localWorld.bodies;
+    const lineToPlayer = new Phaser.Geom.Line(player.x, player.y,enemy.x, enemy.y);
+
+    for(let body of bodies){
+      if (!Phaser.Geom.LineToRectangle(lineToPlayer, body)) {
+        console.log("line to player success");
+      }
+    }
+
   }
 
   loadNextLevel() {
@@ -68,7 +88,9 @@ export default class {
     let count = 0;
     let enemies = this.getEntityManager().enemies;
     for(let room of this.getRoomManager().rooms) {
-      count+=room.enemyTrappedInRoomCount(enemies);
+      if(!room.showRoom) {
+        count+=room.enemyTrappedInRoomCount(enemies); 
+      }
     }
     for(let enemy of enemies) {
       if(enemy.injured) count++;

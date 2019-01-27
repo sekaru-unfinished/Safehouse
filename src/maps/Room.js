@@ -40,11 +40,16 @@ export default class {
         this.graphics.fillRectShape(this.overlay);
     }
 
-    triggerInteractable(indexOfInteractable){
+    triggerInteractable(indexOfInteractable, icon){
       const interactable = this.interactables[indexOfInteractable];
-      interactable.trigger();
+      interactable.trigger(icon);
     }
 
+    triggerLureForRoom(indexOfInteractable, enemies){
+        const interactable = this.interactables[indexOfInteractable];
+       interactable.trigger(enemies);
+    }
+    
     getDoor() {
       for(let interactable of this.interactables) {
         if(interactable.type === "smart_door") return interactable;

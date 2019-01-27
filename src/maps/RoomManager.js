@@ -49,9 +49,9 @@ export default class {
     }
   }
 
-  triggerInteractionForRoom(roomId, indexOfInteractable) {
+  triggerInteractionForRoom(roomId, indexOfInteractable, icon) {
     const room = this.rooms.find((room) => room.id === roomId);
-    room.triggerInteractable(indexOfInteractable);
+    room.triggerInteractable(indexOfInteractable, icon);
   }
 
   toggleLightForRoom(roomId) {
@@ -60,4 +60,9 @@ export default class {
     }
     this.rooms[roomId].forceReveal = !this.rooms[roomId].forceReveal;
   }
+
+	triggerLureForRoom(roomId, indexOfInteractable, enemies){
+		this.rooms[roomId].triggerLureForRoom(indexOfInteractable, enemies);
+	}
+
 }

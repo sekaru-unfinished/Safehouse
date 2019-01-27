@@ -65,8 +65,8 @@ export default class extends Phaser.Physics.Matter.Sprite {
     }
 
     destroyBullet(tween, gameObjects, sceneContext) {
-        gameObjects[0].scene.sound.stopAll();
-        sceneContext.sceneContext.scene.switch('LoseScene');
+        // gameObjects[0].scene.sound.stopAll();
+        // sceneContext.sceneContext.scene.switch('LoseScene');
 
         gameObjects[0].scene.tweens.add({
             targets: gameObjects[0],
@@ -97,9 +97,10 @@ export default class extends Phaser.Physics.Matter.Sprite {
                 }
             }
         }
-
-        this.shortestPointToLure = shortestPoint.point;
+        
         this.targetLure = {x: lureX, y: lureY};
+        this.shortestPointToLure = shortestPoint.point;
+  
   
         // for (let point of this.path) {
         //     if (point !== null) {
@@ -166,63 +167,86 @@ export default class extends Phaser.Physics.Matter.Sprite {
                     this.y);
 
             if(this.movingToLure){
+                
                 let rads = Phaser.Math.Angle.BetweenPoints(
                     new Phaser.Geom.Point(this.x, this.y),
-                    new Phaser.Geom.Point(this.targetLure.x, targetLure.y)
+                    new Phaser.Geom.Point(this.targetLure.x, this.targetLure.y)
                 )
                 this.enemyAngle = rads * (180 / Math.PI);
-                // Make a beeline to the lure
-                const speed = this.speed;
-                if (this.targetLure.x < this.x) {
-                    this.setVelocityX(-speed);
-                } else if (this.targetLure.x > this.x) {
-                    this.setVelocityX(speed);
-                }
+                const distanceToLure =
+                Phaser.Math.Distance.Between(
+                    this.targetLure.x,
+                    this.targetLure.y,
+                    this.x,
+                    this.y);
+                
+                if(distanceToLure > 32){
+                    moving = true;
+                     // Make a beeline to the lure
+                    const speed = this.speed;
+                    if (this.targetLure.x < this.x) {
+                        this.setVelocityX(-speed);
+                    } else if (this.targetLure.x > this.x) {
+                        this.setVelocityX(speed);
+                    }
 
-                if (this.targetLure.y < this.y) {
-                    this.setVelocityY(-speed);
-                } else if (this.targetLure.y > this.y) {
-                    this.setVelocityY(speed);
+                    if (this.targetLure.y < this.y) {
+                        this.setVelocityY(-speed);
+                    } else if (this.targetLure.y > this.y) {
+                        this.setVelocityY(speed);
+                    }
+                }else{
+                    moving = false;
+
+                    setTimeout(() => {
+                        this.movingToLure = false;
+                        this.shortestPointToLure = null;
+                        this.targetLure = null;
+                    }, 5000);
+
                 }
+               
             }else{
                 let rads = Phaser.Math.Angle.BetweenPoints(
                     new Phaser.Geom.Point(this.x, this.y),
                     new Phaser.Geom.Point(currentPathPoint.x, currentPathPoint.y)
                 )
                 this.enemyAngle = rads * (180 / Math.PI);
-            }
-
-            if (distanceToCurrentPoint > 5) {
-                moving = true;
-                const speed = this.speed;
-                if (currentPathPoint.x < this.x) {
-                    this.setVelocityX(-speed);
-                } else if (currentPathPoint.x > this.x) {
-                    this.setVelocityX(speed);
-                }
-
-                if (currentPathPoint.y < this.y) {
-                    this.setVelocityY(-speed);
-                } else if (currentPathPoint.y > this.y) {
-                    this.setVelocityY(speed);
-                }
-            } else {
-                if(this.shortestPointToLure && this.shortestPointToLure.id == currentPathPointIndex){
-                    // If our shortesPointToLure is the same as the current point
-                    
-                    // Move to the lure now we have reached the shortest point
-                    this.movingToLure = true;
-                }
-
-                if (currentPathPoint.finalPoint) {
-                    this.currentPathPointIndex = 0;
-                    moving = false;
+            
+                if (distanceToCurrentPoint > 5) {
+                    moving = true;
+                    const speed = this.speed;
+                    if (currentPathPoint.x < this.x) {
+                        this.setVelocityX(-speed);
+                    } else if (currentPathPoint.x > this.x) {
+                        this.setVelocityX(speed);
+                    }
+    
+                    if (currentPathPoint.y < this.y) {
+                        this.setVelocityY(-speed);
+                    } else if (currentPathPoint.y > this.y) {
+                        this.setVelocityY(speed);
+                    }
                 } else {
-                    this.currentPathPointIndex++;
-                    moving = false;
+                    if(this.shortestPointToLure && this.shortestPointToLure.id == this.currentPathPointIndex){
+                        // If our shortesPointToLure is the same as the current point
+                        
+                        // Move to the lure now we have reached the shortest point
+                        this.movingToLure = true;
+                    }
+    
+                    if (currentPathPoint.finalPoint) {
+                        this.currentPathPointIndex = 0;
+                        moving = false;
+                    } else {
+                        this.currentPathPointIndex++;
+                        moving = false;
+                    }
+    
                 }
-
             }
+
+            
         }
 
         if (moving) {
@@ -235,5 +259,33 @@ export default class extends Phaser.Physics.Matter.Sprite {
         if (!this.alerted) {
             // Follow the path
         }
+    }
+
+    setLure(lure){
+        let shortestPoint; 
+        
+        let distanceToLure =  Phaser.Math.Distance.Between(lure.x, lure.y, this.x, this.y);
+        
+        if(distanceToLure > 400) return false;
+
+        for(let point of this.path){
+            let distancePathPointToLure =  Phaser.Math.Distance.Between(lure.x, lure.y, point.x, point.y);
+
+            if(shortestPoint == null){
+                shortestPoint = {
+                    point: point, distance: distancePathPointToLure
+                };
+            }else{
+                if(shortestPoint.distance > distancePathPointToLure){
+                    shortestPoint = {
+                        point: point, distance: distancePathPointToLure
+                    };
+                }
+            }
+        }
+        
+        this.targetLure = {x: lure.x, y: lure.y};
+        this.shortestPointToLure = shortestPoint.point;
+  
     }
 }
