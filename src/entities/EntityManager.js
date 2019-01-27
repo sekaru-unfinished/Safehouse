@@ -3,6 +3,7 @@ import Player from "./Player";
 import Roomba from './interactables/Roomba';
 import Fridge from './interactables/Fridge';
 import SmartDoor from './interactables/SmartDoor';
+import GoogleHome from './interactables/GoogleHome';
 
 export default class {
 
@@ -96,18 +97,25 @@ export default class {
                     const fridge = new Fridge(this.scene, value.x, value.y);
                     this.scene.matter.add.sprite(fridge);
                     
-                    interactable =  fridge;
+                    interactable = fridge;
                 case "smart door":
                     // Get the direction property for this interactable
         
                     const door = new SmartDoor(this.scene, value.x, value.y);
                     this.scene.matter.add.sprite(door);
                     
-                    interactable =  door;
+                    interactable = door;
+                case "google home":
+                    const googleHome = new GoogleHome(this.scene, value.x, value.y);
+                    this.scene.matter.add.sprite(googleHome);
+                    
+                    interactable = googleHome;
                 default:
                     break;
             }
-            this.interactables.push(interactable);
+            if(interactable){
+                this.interactables.push(interactable);  
+            }
         });
     }
 
