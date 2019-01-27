@@ -43,7 +43,15 @@ export default class {
     
     for(let enemy of 
       this.entityManager.enemies){
-        this.rayCastToPlayer(enemy);
+        if(this.rayCastToPlayer(enemy)){
+                      
+                      if(!enemy.spottedPlayer){
+                        enemy.spottedPlayer = true;
+                        enemy.spotPlayer();
+                    
+                      }
+            
+        }
       }
 
     this.roomManager.revealRoomsForPlayer(this.entityManager.getPlayer());
@@ -60,14 +68,16 @@ export default class {
   
   rayCastToPlayer(enemy){
     const player = this.entityManager.getPlayer();
-    const bodies = this.mapCollisions.world.localWorld.bodies;
+    const bodies = this.mapCollisions.localWorld.bodies;
+
     const lineToPlayer = new Phaser.Geom.Line(player.x, player.y,enemy.x, enemy.y);
 
     for(let body of bodies){
-      if (!Phaser.Geom.LineToRectangle(lineToPlayer, body)) {
-        console.log("line to player success");
+      if (!Phaser.Geom.Intersects.LineToRectangle(lineToPlayer, body)) {
+        return true;
       }
     }
+    return false;
 
   }
 

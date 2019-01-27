@@ -65,8 +65,8 @@ export default class extends Phaser.Physics.Matter.Sprite {
     }
 
     destroyBullet(tween, gameObjects, sceneContext) {
-        // gameObjects[0].scene.sound.stopAll();
-        // sceneContext.sceneContext.scene.switch('LoseScene');
+        gameObjects[0].scene.sound.stopAll();
+        sceneContext.sceneContext.scene.switch('LoseScene');
 
         gameObjects[0].scene.tweens.add({
             targets: gameObjects[0],
