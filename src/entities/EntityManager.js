@@ -68,6 +68,7 @@ export default class {
     }
 
     update() {
+
         for (let enemy of this.enemies) {
             enemy.update();
         }
@@ -75,4 +76,7 @@ export default class {
         if(this.player) this.player.handleMovement();
     }
 
+    getPlayer(){
+    	return this.player;
+    }
 }
