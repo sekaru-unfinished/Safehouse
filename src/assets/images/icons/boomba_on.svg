@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg viewBox="-7.176 -8.758 100 100" xmlns="http://www.w3.org/2000/svg">
-  <circle style="fill: none; stroke: rgb(204, 204, 204); stroke-width: 3.83205px;" cx="42.824" cy="41.242" r="26.742"/>
+  <circle style="stroke: rgb(204, 204, 204); stroke-width: 3.83205px; fill: rgb(136, 136, 136);" cx="42.824" cy="41.242" r="26.742"/>
   <circle style="fill: none; stroke: rgb(204, 204, 204); stroke-width: 3.83205px;" cx="42.824" cy="41.242" r="9.052"/>
   <circle style="stroke-width: 3.83205px; fill: rgb(171, 225, 152);" cx="42.824" cy="41.242" r="3"/>
   <path d="M 22.458 41.242 C 22.458 29.993 31.576 20.875 42.824 20.875 C 54.072 20.875 63.191 29.993 63.191 41.242" style="fill: none; stroke-width: 3.83205px; stroke: rgb(171, 225, 152);"/>

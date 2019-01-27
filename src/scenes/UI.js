@@ -51,11 +51,9 @@ export default class UI extends Phaser.Scene {
 
   create() {
     this.phone = this.add.image(0, 0, 'phone');
-
-    const phoneHiddenY = this.sys.game.canvas.height + this.phone.height;
-    const phoneActiveY = this.sys.game.canvas.height - this.phone.height / 2 - 20;
-    this.phoneContainer = this.add.container(this.phone.width / 2 + 20, phoneHiddenY);
-    this.phoneContainer.add(this.phone);
+    this.phoneHiddenY = this.sys.game.canvas.height + this.phone.height;
+    this.phoneActiveY = this.sys.game.canvas.height - this.phone.height / 2 - 20;
+    this.createPhone();
 
     this.input.keyboard.on('keydown-SPACE', () => {
       if(!this.inGame()) return;
@@ -66,11 +64,16 @@ export default class UI extends Phaser.Scene {
 
       this.tweens.add({
         targets: this.phoneContainer,
-        y: this.showPhone ? phoneActiveY : phoneHiddenY,
+        y: this.showPhone ? this.phoneActiveY : this.phoneHiddenY,
         duration: 400,
         ease: 'Power2'
       });
     }, this);
+  }
+
+  createPhone() {
+    this.phoneContainer = this.add.container(this.phone.width / 2 + 20, this.phoneHiddenY);
+    this.phoneContainer.add(this.phone);
   }
 
   updateUI() {
@@ -95,7 +98,6 @@ export default class UI extends Phaser.Scene {
         const offset = 35;
         if(rooms[i].interactables.length > 0) {
           for(let j=0; j<rooms[i].interactables.length; j++) {
-            const interactable = rooms[i].interactables[j];
             const displayX = (j+1) * offset - ((offset * (rooms[i].interactables.length + 1.3)) / 2);
             switch(rooms[i].interactables[j].type) {
               case "smart_door": 
@@ -120,13 +122,12 @@ export default class UI extends Phaser.Scene {
   }
 
   smartDoorIcon(x, y, roomId, indexOfInteractable) {
-
     let icon = this.add.image(x, y, 'lock_off');
     icon.setInteractive().setOrigin(0, 0);
     icon.on('pointerdown', (pointer, x, y, event) => {
       let gameScene = this.scene.manager.getScene('Game');
       gameScene.mapManager.getRoomManager().triggerInteractionForRoom(roomId, indexOfInteractable);
-      icon.setTexture('Lock_on')
+      icon.setTexture('lock_on')
     });
 
     return icon;
@@ -183,8 +184,12 @@ export default class UI extends Phaser.Scene {
   update() {
     if(!this.inGame() && this.showPhone) {
       this.showPhone = false;
-      const phoneHiddenY = this.sys.game.canvas.height + this.phone.height;
-      this.phoneContainer.y = phoneHiddenY;      
+      this.phone.destroy();
+      this.phoneContainer.destroy();
+
+      this.phone = this.add.image(0, 0, 'phone');
+      this.createPhone();
+      this.uiSet = false;
     }
   }
 }
