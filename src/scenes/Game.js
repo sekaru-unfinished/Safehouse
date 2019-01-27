@@ -50,7 +50,7 @@ export default class Game extends Phaser.Scene {
         camera.setZoom(3);
         const cameraBounds = this.mapManager.getCameraBounds();
 
-        camera.startFollow(this.mapManager.getEntityManager().player);
+        camera.startFollow(this.mapManager.getEntityManager().player);    
 
         // this.input.on('pointerdown', () => {
         //   this.input.stopPropagation();
@@ -94,6 +94,10 @@ export default class Game extends Phaser.Scene {
     }
 
     update() {
-        this.mapManager.getEntityManager().update();
+        this.mapManager.update();
+    }
+
+    render(){
+        this.mapManager.getRoomManager().render();
     }
 }

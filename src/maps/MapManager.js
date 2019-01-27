@@ -1,4 +1,5 @@
 import EntityManager from '../entities/EntityManager';
+import RoomManager from './RoomManager';
 
 export default class {
 
@@ -8,6 +9,7 @@ export default class {
 		this.loadLevel();
 
 		this.entityManager = new EntityManager(scene, this.map);
+		this.roomManager = new RoomManager(scene, this.map);
 	}
 
 	getCameraBounds(){
@@ -36,6 +38,12 @@ export default class {
 		this.scene.matter.world.setBounds(0, 0, cameraWidth, cameraHeight);
 	}
 
+	update(){
+        this.entityManager.update();
+        this.roomManager.revealRoomsForPlayer(this.entityManager.getPlayer());
+		this.roomManager.render();
+	}
+
 	loadNextLevel(){
 		this.level++;
 		this.loadLevel();
@@ -43,5 +51,9 @@ export default class {
 
 	getEntityManager(){
 		return this.entityManager;
+	}
+
+	getRoomManager(){
+		return this.roomManager;
 	}
 }
