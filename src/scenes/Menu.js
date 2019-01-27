@@ -33,7 +33,7 @@ export default class Menu extends Phaser.Scene {
         font: '50px Courier',
         fill: '#ffffff'
     });
-    this.textPlay = this.add.text(width / 2, height - 200, "Press SPACEBAR to play", {
+    this.textPlay = this.add.text(width / 2, height - 200, "Press any key to play", {
         font: '30px monospace',
         fill: '#ffffff'
     });
@@ -43,7 +43,7 @@ export default class Menu extends Phaser.Scene {
 
     this.cameras.main.fadeIn(1000);
 
-    this.input.keyboard.on('keydown-SPACE', function(event) {
+    this.input.keyboard.on('keydown', function(event) {
         this.scene.switch('Game');
     }, this);
   }

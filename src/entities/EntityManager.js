@@ -59,7 +59,7 @@ export default class {
                 y: value.y,
                 path: pathPoints,
                 player: this.player
-            });
+            }, this.scene);
 
             // TODO Add a parameter to Tiled and this to set the starting path point
             this.scene.matter.add.sprite(enemy);

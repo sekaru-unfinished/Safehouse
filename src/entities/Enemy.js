@@ -1,9 +1,11 @@
 
 export default class extends Phaser.Physics.Matter.Sprite {
-    constructor(config) {
+    constructor(config, sceneContext) {
         super(config.scene.matter.world, config.x, config.y, 'enemy');
         this.scene = config.scene;
         this.scene.add.existing(this);
+
+        this.sceneContext = sceneContext;
 
         this.path = config.path;
         this.moving = false;
@@ -37,7 +39,7 @@ export default class extends Phaser.Physics.Matter.Sprite {
         this.enemyAngle = rads * (180 / Math.PI);
     }
 
-    shootAnimUpdate(animation, frame, gameobject) {
+    shootAnimUpdate(animation, frame, gameobject, sceneContext) {
         if(frame.index === 8) {
             let bullet = this.scene.add.image(this.x, this.y, 'bullet');
             bullet.setRotation(
@@ -51,12 +53,15 @@ export default class extends Phaser.Physics.Matter.Sprite {
                 x: this.player.x,
                 y: this.player.y,
                 duration: 150,
-                onComplete: this.destroyBullet
+                onComplete: this.destroyBullet,
+                onCompleteParams: [this]
             });
         }
     }
 
-    destroyBullet(tween, gameObjects) {
+    destroyBullet(tween, gameObjects, sceneContext) {
+        sceneContext.sceneContext.scene.switch('LoseScene');
+
         gameObjects[0].scene.tweens.add({
             targets: gameObjects[0],
             alpha: 0,
