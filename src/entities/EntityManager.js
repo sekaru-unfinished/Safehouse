@@ -22,8 +22,8 @@ export default class {
   loadPlayer() {
     this.player = new Player({
       scene: this.scene,
-      x: 40,
-      y: 40,
+      x: 225,
+      y: 73,
       key: 'player'
     });
     this.scene.matter.add.sprite(this.player);

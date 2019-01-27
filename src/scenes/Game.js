@@ -67,11 +67,7 @@ export default class Game extends Phaser.Scene {
         camera.setZoom(3);
 
         camera.startFollow(this.mapManager.getEntityManager().player);
-
-        // Change state scenes (Temporary)
-        this.input.keyboard.on('keydown-W', function(event) {
-            this.scene.switch('WinScene');
-        }, this);
+        // camera.setBounds(0, 0, this.sys.canvas.width, this.sys.canvas.height);
 
         this.sound.add('gamemusic').play({loop: true});
 

@@ -145,7 +145,7 @@ export default class UI extends Phaser.Scene {
     icon.setInteractive().setOrigin(0, 0);
     icon.on('pointerdown', (pointer, x, y, event) => {
       let gameScene = this.scene.manager.getScene('Game');
-      gameScene.mapManager.getRoomManager().toggleLightForRoom(roomId);
+      gameScene.mapManager.getRoomManager().toggleLightForRoom(roomId, icon);
       icon.setTexture('light_on');
     });
 
@@ -180,6 +180,10 @@ export default class UI extends Phaser.Scene {
       let gameScene = this.scene.manager.getScene('Game');
       gameScene.mapManager.getRoomManager().triggerInteractionForRoom(roomId, indexOfInteractable);
       icon.setTexture('boomba_on');
+
+      setTimeout(() => {
+        icon.setTexture('boomba_off');
+      }, 1000);
     });
 
     return icon;

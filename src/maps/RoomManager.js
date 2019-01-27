@@ -54,11 +54,13 @@ export default class {
     room.triggerInteractable(indexOfInteractable, icon);
   }
 
-  toggleLightForRoom(roomId) {
+  toggleLightForRoom(roomId, icon) {
     for (let room of this.rooms) {
       room.forceReveal = false;
+      if(room.lightIcon) room.lightIcon.setTexture("light_off");
     }
     this.rooms[roomId].forceReveal = !this.rooms[roomId].forceReveal;
+    this.rooms[roomId].lightIcon = icon;
   }
 
 	triggerLureForRoom(roomId, indexOfInteractable, enemies){
