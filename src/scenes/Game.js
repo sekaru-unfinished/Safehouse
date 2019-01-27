@@ -58,7 +58,6 @@ export default class Game extends Phaser.Scene {
 
         // Change state scenes (Temporary)
         this.input.keyboard.on('keydown-W', function(event) {
-            console.log('W');
             this.scene.switch('WinScene');
         }, this);
     }
