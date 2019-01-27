@@ -10,6 +10,8 @@ export default class PlayerMovement extends Phaser.Physics.Matter.Sprite {
         this.cursorKeys = config.scene.input.keyboard.createCursorKeys();
         this.shownAngle = this.playerAngle = 0;
         this.setDepth(3);
+
+        this.speed = 1.5;
     }
 
     handleMovement() {
@@ -17,31 +19,30 @@ export default class PlayerMovement extends Phaser.Physics.Matter.Sprite {
         this.setVelocityY(0);
 
         let moving = false;
-        const speed = 2.5;
 
         this.shownAngle += (((((this.playerAngle - this.shownAngle) % 360) + 540) % 360) - 180) * 0.1;
         this.setAngle(this.shownAngle);
         
         if ( this.cursorKeys.up.isDown ) {
-            this.setVelocityY(-speed);
+            this.setVelocityY(-this.speed);
             this.playerAngle = -90;
             moving = true;
             this.anims.play('walk', true);
         }
         if (this.cursorKeys.down.isDown) {
-            this.setVelocityY(speed);
+            this.setVelocityY(this.speed);
             this.playerAngle = 90;
             moving = true;
             this.anims.play('walk', true);
         }
         if (this.cursorKeys.left.isDown) {
-            this.setVelocityX(-speed);
+            this.setVelocityX(-this.speed);
             this.playerAngle = 180;
             moving = true;
             this.anims.play('walk', true);
         }
         if (this.cursorKeys.right.isDown) {
-            this.setVelocityX(speed);
+            this.setVelocityX(this.speed);
             this.playerAngle = 0;
             moving = true;
             this.anims.play('walk', true);
