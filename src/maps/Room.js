@@ -25,11 +25,9 @@ export default class {
     }
 
     addInteractableIfCollides(interactable){
-    	console.log(interactable);
     	if(interactable){
 	    	if (Phaser.Geom.Rectangle.Overlaps(interactable.getBounds(), this.overlay)) {
             	this.interactables.push(interactable);
-     			console.log(this.interactables);
         	}
     	}
     }
