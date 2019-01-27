@@ -1,5 +1,6 @@
 import Enemy from "./Enemy";
 import Player from "./Player";
+import Roomba from './interactables/Roomba';
 
 export default class {
 
@@ -8,8 +9,10 @@ export default class {
         this.map = map;
 
         this.enemies = [];
+
         this.loadPlayer();
         this.loadEnemies(map);
+        this.loadInteractables(map);
     }
 
     loadPlayer() {
@@ -65,6 +68,33 @@ export default class {
             this.scene.matter.add.sprite(enemy);
             this.enemies.push(enemy);
         });
+    }
+
+    loadInteractables(map){
+        this.map.filterObjects("interactables", (value, index, array) => {
+            // Pull out the properties required
+            const typeProperty = value.properties.find(
+                (property) => property.name === "type");
+            console.log(typeProperty);
+
+            switch(typeProperty.value){
+                case "roomba":
+                    // Get the direction property for this interactable
+                    const directionProperty = value.properties.find(
+                            (property) => property.name === "direction");
+                    console.log(directionProperty);
+            
+                    const roomba = new Roomba(this.scene, value.x, value.y, directionProperty.value);
+                    this.scene.matter.add.sprite(roomba);
+                    
+                    return roomba;
+                default:
+                    break;
+            }
+
+            this.interactables = array;
+        });
+
     }
 
     update() {
