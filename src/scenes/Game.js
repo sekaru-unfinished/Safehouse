@@ -27,7 +27,7 @@ export default class Game extends Phaser.Scene {
             enemy,
             { 
                 frameWidth: 29, 
-                frameHeight: 29 
+                frameHeight: 21
             }
         );
 
@@ -36,9 +36,12 @@ export default class Game extends Phaser.Scene {
             enemyShoot,
             { 
                 frameWidth: 29, 
-                frameHeight: 29 
+                frameHeight: 21
             }
         );
+
+        this.load.audio('blood', 'src/assets/sounds/blood.wav');
+        this.load.audio('pistol', 'src/assets/sounds/pistol.ogg');
     }
 
     create() {
@@ -48,7 +51,6 @@ export default class Game extends Phaser.Scene {
 
         const camera = this.cameras.main;
         camera.setZoom(3);
-        const cameraBounds = this.mapManager.getCameraBounds();
 
         camera.startFollow(this.mapManager.getEntityManager().player);
 
@@ -89,6 +91,10 @@ export default class Game extends Phaser.Scene {
     }
 
     update() {
-        this.mapManager.getEntityManager().update();
+        this.mapManager.update();
+    }
+
+    render(){
+        this.mapManager.getRoomManager().render();
     }
 }

@@ -14,6 +14,9 @@ export default class UI extends Phaser.Scene {
     this.load.image('phone', 'src/assets/images/phone.svg');
     this.load.image('speaker_off', 'src/assets/images/icons/speaker_off.svg');
     this.load.image('speaker_on', 'src/assets/images/icons/speaker_on.svg');
+
+    this.load.audio('phone', 'src/assets/sounds/phone.ogg');
+    this.load.audio('tap', 'src/assets/sounds/tap.wav');
   }
 
   create() {
@@ -38,6 +41,9 @@ export default class UI extends Phaser.Scene {
     this.input.keyboard.on('keydown-SPACE', () => {
       if(!this.inGame()) return;
       this.showPhone = !this.showPhone;
+
+      if(this.showPhone) this.sound.add('phone').play();
+
       this.tweens.add({
         targets: this.phoneContainer,
         y: this.showPhone ? phoneActiveY : phoneHiddenY,

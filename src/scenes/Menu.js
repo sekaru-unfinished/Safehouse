@@ -17,6 +17,8 @@ export default class Menu extends Phaser.Scene {
     // TODO Should we load them all at once?
     this.load.tilemapTiledJSON('level_1', level_1);
     this.load.tilemapTiledJSON('level_2', level_2);
+
+    this.load.audio('tap', 'src/assets/sounds/tap.wav');
   }
   
   create() {
@@ -55,6 +57,7 @@ export default class Menu extends Phaser.Scene {
     this.input.keyboard.on('keydown', function(event) {
         this.scene.stop('Game');
         this.scene.start('Game');
+        this.sound.add('tap').play();
     }, this);
   }
 }

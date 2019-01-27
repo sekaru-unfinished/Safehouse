@@ -15,9 +15,11 @@
  </tileset>
  <tileset firstgid="12" source="tilesets/marblefloor.tsx"/>
  <tileset firstgid="13" source="tilesets/wallcorner.tsx"/>
+ <tileset firstgid="14" source="beigefloor.tsx"/>
+ <tileset firstgid="15" source="bluefloor.tsx"/>
  <layer id="1" name="Tile Layer 1" width="10" height="10">
   <data encoding="base64" compression="zlib">
-   eJzjYWBg4EHDbFgwuprBpo7WGJs7sLmFUnUAqLYDWw==
+   eJzjYWBg4EHDfFgwuprBpo6fxhibO3hooA4AHhQFQw==
   </data>
  </layer>
  <layer id="2" name="Walls" width="10" height="10">
