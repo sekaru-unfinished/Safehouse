@@ -68,6 +68,12 @@
                  "height":186.219696969697,
                  "id":24,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"room",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -79,6 +85,12 @@
                  "height":210.666666666667,
                  "id":25,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"room",
+                         "type":"int",
+                         "value":3
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -90,6 +102,12 @@
                  "height":318.666666666667,
                  "id":26,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"room",
+                         "type":"int",
+                         "value":4
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -98,20 +116,32 @@
                  "y":477.333333333333
                 }, 
                 {
-                 "height":277.333333333333,
+                 "height":283.333333333333,
                  "id":27,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"room",
+                         "type":"int",
+                         "value":5
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":248.666666666667,
                  "x":547.333333333333,
-                 "y":514.666666666667
+                 "y":508.666666666667
                 }, 
                 {
                  "height":152,
                  "id":28,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"room",
+                         "type":"int",
+                         "value":1
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -123,6 +153,12 @@
                  "height":153,
                  "id":29,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"room",
+                         "type":"int",
+                         "value":2
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -556,7 +592,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
