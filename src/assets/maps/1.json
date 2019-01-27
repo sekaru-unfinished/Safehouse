@@ -313,10 +313,33 @@
                  "width":0,
                  "x":252,
                  "y":43
+                }, 
+                {
+                 "height":0,
+                 "id":66,
+                 "name":"",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"direction",
+                         "type":"int",
+                         "value":4
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"roomba"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":303,
+                 "y":198
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -363,7 +386,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":true,
+         "visible":false,
          "x":0,
          "y":0
         }, 
@@ -683,7 +706,7 @@
          "y":0
         }],
  "nextlayerid":14,
- "nextobjectid":66,
+ "nextobjectid":67,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.1",
