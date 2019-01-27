@@ -39,6 +39,9 @@ export default class Game extends Phaser.Scene {
                 frameHeight: 21
             }
         );
+
+        this.load.audio('blood', 'src/assets/sounds/blood.wav');
+        this.load.audio('pistol', 'src/assets/sounds/pistol.ogg');
     }
 
     create() {
