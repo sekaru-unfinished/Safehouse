@@ -4,6 +4,7 @@ import player from "../assets/sprites/player.png";
 import enemy from "../assets/sprites/enemy/enemy.png";
 import enemyShoot from "../assets/sprites/enemy/enemy_shoot.png";
 import bullet from "../assets/sprites/bullet.png";
+import boomba from "../assets/sprites/boomba.png";
 
 export default class Game extends Phaser.Scene {
     constructor() {
@@ -12,6 +13,7 @@ export default class Game extends Phaser.Scene {
 
     preload() {
         this.load.image('bullet', bullet);
+        this.load.image('boomba', boomba);
 
         this.load.spritesheet(
             'player',

@@ -8,6 +8,7 @@ export default class {
 		this.scene = scene;
 		this.loadLevel();
 
+		this.roomManager = new RoomManager(scene, this.map);
 		this.entityManager = new EntityManager(scene, this.map);
 		this.roomManager = new RoomManager(scene, this.map);
 	}
