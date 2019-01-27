@@ -53,7 +53,8 @@ export default class Menu extends Phaser.Scene {
     this.cameras.main.fadeIn(1000);
 
     this.input.keyboard.on('keydown', function(event) {
-        this.scene.switch('Game');
+        this.scene.stop('Game');
+        this.scene.start('Game');
     }, this);
   }
 }
