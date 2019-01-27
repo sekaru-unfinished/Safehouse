@@ -6,6 +6,7 @@ export default class LoseScene extends Phaser.Scene {
     }
 
     create() {
+        const sceneContext = this.scene;
         const width = this.sys.canvas.width;
         const height = this.sys.canvas.height;
         
@@ -40,5 +41,25 @@ export default class LoseScene extends Phaser.Scene {
             fill: '#ffffff'
         });
         this.restartText.setOrigin(0.5);
+
+        this.tween = this.tweens.add({
+            targets: this.restartText,
+            y: height - 100,
+            duration: 1500,
+            completeDelay: 800,
+            ease: 'Power2',
+            delay: 500,
+            repeat: 0,
+            loop: 0,
+            yoyo: false,
+            onComplete: this.restartGame,
+            callbackScope: sceneContext
+        });
+    }
+
+    restartGame(sceneContext) {
+        this.scene.input.keyboard.on('keydown', function(event) {
+            this.start('Menu');
+        }, this)
     }
 }
