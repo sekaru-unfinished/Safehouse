@@ -179,4 +179,12 @@ export default class UI extends Phaser.Scene {
   inGame() {
     return this.scene.manager.isActive('Game');
   }
+
+  update() {
+    if(!this.inGame() && this.showPhone) {
+      this.showPhone = false;
+      const phoneHiddenY = this.sys.game.canvas.height + this.phone.height;
+      this.phoneContainer.y = phoneHiddenY;      
+    }
+  }
 }
