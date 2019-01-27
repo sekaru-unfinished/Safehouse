@@ -88,7 +88,9 @@ export default class {
     let count = 0;
     let enemies = this.getEntityManager().enemies;
     for(let room of this.getRoomManager().rooms) {
-      count+=room.enemyTrappedInRoomCount(enemies);
+      if(!room.showRoom) {
+        count+=room.enemyTrappedInRoomCount(enemies); 
+      }
     }
     for(let enemy of enemies) {
       if(enemy.injured) count++;
