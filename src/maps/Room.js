@@ -44,4 +44,9 @@ export default class {
       const interactable = this.interactables[indexOfInteractable];
       interactable.trigger();
     }
+
+    triggerLureForRoom(indexOfInteractable, enemies){
+        const interactable = this.interactables[indexOfInteractable];
+      interactable.trigger(enemies);
+    }
 }

@@ -149,6 +149,16 @@ export default class UI extends Phaser.Scene {
     icon.setInteractive().setOrigin(0, 0);
     icon.on('pointerdown', (pointer, x, y, event) => {
       icon.setTexture('speaker_on');
+      let gameScene = this.scene.manager.getScene('Game');
+
+      const timer = setInterval(() => {
+        gameScene.mapManager.getRoomManager().triggerLureForRoom(roomId, indexOfInteractable, gameScene.mapManager.getEntityManager().enemies);
+      }, 1000);
+
+      setTimeout(() => {
+        clearInterval(timer);
+      }, 5000);
+     
     });
 
     return icon;

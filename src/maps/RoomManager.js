@@ -65,4 +65,8 @@ export default class{
     this.rooms[roomId].forceReveal = !this.rooms[roomId].forceReveal;
   }
 
+	triggerLureForRoom(roomId, indexOfInteractable, enemies){
+		this.rooms[roomId].triggerLureForRoom(indexOfInteractable, enemies);
+	}
+
 }

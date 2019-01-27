@@ -109,7 +109,7 @@ export default class {
                     
                     break;
                 case "google home":
-                    const googleHome = new GoogleHome(this.scene, value.x, value.y);
+                    const googleHome = new GoogleHome(this.scene, value.x, value.y, this.enemies);
                     this.scene.matter.add.sprite(googleHome);
                     interactable = googleHome;
                     
