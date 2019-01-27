@@ -63,7 +63,6 @@ export default class{
       room.forceReveal = false;
     }
     this.rooms[roomId].forceReveal = !this.rooms[roomId].forceReveal;
-    console.log(this.rooms[roomId].forceReveal);
   }
 
 }

@@ -42,7 +42,6 @@ export default class {
 
     triggerInteractable(indexOfInteractable){
       const interactable = this.interactables[indexOfInteractable];
-      console.log(interactable);
       interactable.trigger();
     }
 }
