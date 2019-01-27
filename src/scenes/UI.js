@@ -42,7 +42,7 @@ export default class UI extends Phaser.Scene {
       if(!this.inGame()) return;
       this.showPhone = !this.showPhone;
 
-      this.sound.add('phone').play();
+      this.sound.once('phone').play();
 
       this.tweens.add({
         targets: this.phoneContainer,

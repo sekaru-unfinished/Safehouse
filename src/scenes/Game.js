@@ -44,6 +44,7 @@ export default class Game extends Phaser.Scene {
 
         this.load.audio('blood', 'src/assets/sounds/blood.wav');
         this.load.audio('pistol', 'src/assets/sounds/pistol.ogg');
+        this.load.audio('gamemusic', 'src/assets/sounds/gamemusic.ogg');
     }
 
     create() {
@@ -59,6 +60,12 @@ export default class Game extends Phaser.Scene {
         // Change state scenes (Temporary)
         this.input.keyboard.on('keydown-W', function(event) {
             this.scene.switch('WinScene');
+        }, this);
+
+        this.sound.add('gamemusic').play({loop: true});
+
+        this.input.keyboard.on('keydown-M', () => {
+          this.sound.setMute(!this.sound.mute)
         }, this);
     }
 

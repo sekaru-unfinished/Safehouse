@@ -41,6 +41,8 @@ export default class extends Phaser.Physics.Matter.Sprite {
 
     shootAnimUpdate(animation, frame, gameobject, sceneContext) {
         if(frame.index === 8) {
+            this.scene.sound.add('pistol').play();
+
             let bullet = this.scene.add.image(this.x, this.y, 'bullet');
             bullet.setRotation(
                 Phaser.Math.Angle.BetweenPoints(
@@ -60,6 +62,7 @@ export default class extends Phaser.Physics.Matter.Sprite {
     }
 
     destroyBullet(tween, gameObjects, sceneContext) {
+        gameObjects[0].scene.sound.stopAll();
         sceneContext.sceneContext.scene.switch('LoseScene');
 
         gameObjects[0].scene.tweens.add({

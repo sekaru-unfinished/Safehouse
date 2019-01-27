@@ -19,10 +19,10 @@ export default class Menu extends Phaser.Scene {
     this.load.tilemapTiledJSON('level_2', level_2);
 
     this.load.audio('tap', 'src/assets/sounds/tap.wav');
+    this.load.audio('menumusic', 'src/assets/sounds/menumusic.ogg');
   }
   
   create() {
-
     const width = this.sys.canvas.width;
     const height = this.sys.canvas.height;
     
@@ -56,8 +56,11 @@ export default class Menu extends Phaser.Scene {
 
     this.input.keyboard.on('keydown', function(event) {
         this.sound.add('tap').play();
+        this.sound.stopAll();
         this.scene.stop('Game');
         this.scene.start('Game');
     }, this);
+
+    this.sound.add('menumusic').play({loop: true});
   }
 }
