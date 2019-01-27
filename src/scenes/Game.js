@@ -27,7 +27,7 @@ export default class Game extends Phaser.Scene {
             enemy,
             { 
                 frameWidth: 29, 
-                frameHeight: 29 
+                frameHeight: 21
             }
         );
 
@@ -36,7 +36,7 @@ export default class Game extends Phaser.Scene {
             enemyShoot,
             { 
                 frameWidth: 29, 
-                frameHeight: 29 
+                frameHeight: 21
             }
         );
     }
@@ -48,9 +48,8 @@ export default class Game extends Phaser.Scene {
 
         const camera = this.cameras.main;
         camera.setZoom(3);
-        const cameraBounds = this.mapManager.getCameraBounds();
 
-        camera.startFollow(this.mapManager.getEntityManager().player);    
+        camera.startFollow(this.mapManager.getEntityManager().player);
 
         // this.input.on('pointerdown', () => {
         //   this.input.stopPropagation();
