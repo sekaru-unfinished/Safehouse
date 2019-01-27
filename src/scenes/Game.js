@@ -54,12 +54,6 @@ export default class Game extends Phaser.Scene {
 
         camera.startFollow(this.mapManager.getEntityManager().player);
 
-        // this.input.on('pointerdown', () => {
-        //   this.input.stopPropagation();
-        //   this.mapManager.loadNextLevel();
-        // }, this);
-
-
         // Change state scenes (Temporary)
         this.input.keyboard.on('keydown-W', function(event) {
             console.log('W');
