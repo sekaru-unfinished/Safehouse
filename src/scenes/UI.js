@@ -74,10 +74,18 @@ export default class UI extends Phaser.Scene {
   createPhone() {
     this.phoneContainer = this.add.container(this.phone.width / 2 + 60, this.phoneHiddenY);
     this.phoneContainer.add(this.phone);
+
+    this.enemiesLeftText = this.add.text(0, 0, "Intruders remaining: ?", {
+      font: '12px monospace',
+      fill: '#ffffff'
+    });
+    this.enemiesLeftText.setOrigin(0.5, 0.5);
+    this.enemiesLeftText.y -= 290;
+    this.phoneContainer.add(this.enemiesLeftText);
   }
 
   updateUI() {
-    let gameScene = this.scene.manager.getScene('Game')
+    let gameScene = this.scene.manager.getScene('Game');
  
     if(gameScene.mapManager && !this.uiSet) {
       this.uiSet = true;
@@ -185,6 +193,7 @@ export default class UI extends Phaser.Scene {
     if(!this.inGame() && this.showPhone) {
       this.showPhone = false;
       this.phone.destroy();
+      this.enemiesLeftText.destroy();
       this.phoneContainer.destroy();
 
       this.phone = this.add.image(0, 0, 'phone');
