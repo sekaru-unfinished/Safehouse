@@ -19,16 +19,15 @@ export default class extends Phaser.Physics.Matter.Sprite {
 
         this.player = config.player;
         this.spottedPlayer = false;
-        this.injured = false;
+
+        this.body.collisionFilter.group = -1
 
         this.setDepth(3);
         
-        setTimeout(() => {
-            this.spottedPlayer = true;
-            this.spotPlayer();
-        }, 7000);
-
-        this.investigateLure();
+        // setTimeout(() => {
+        //     this.spottedPlayer = true;
+        //     this.spotPlayer();
+        // }, 5000);
     }
 
     spotPlayer() {
@@ -208,7 +207,7 @@ export default class extends Phaser.Physics.Matter.Sprite {
                     this.setVelocityY(speed);
                 }
             } else {
-                if(this.shortestPointToLure && this.shortestPointToLure.id == this.currentPathPointIndex){
+                if(this.shortestPointToLure && this.shortestPointToLure.id == currentPathPointIndex){
                     // If our shortesPointToLure is the same as the current point
                     
                     // Move to the lure now we have reached the shortest point
