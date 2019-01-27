@@ -59,6 +59,7 @@ export default class LoseScene extends Phaser.Scene {
 
     restartGame(sceneContext) {
         this.scene.input.keyboard.on('keydown', function(event) {
+            this.scene.sound.add('tap').play();
             this.start('Menu');
         }, this)
     }
