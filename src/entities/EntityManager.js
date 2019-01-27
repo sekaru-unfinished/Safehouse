@@ -76,14 +76,12 @@ export default class {
             // Pull out the properties required
             const typeProperty = value.properties.find(
                 (property) => property.name === "type");
-            console.log(typeProperty);
 
             switch(typeProperty.value){
                 case "roomba":
                     // Get the direction property for this interactable
                     const directionProperty = value.properties.find(
                             (property) => property.name === "direction");
-                    console.log(directionProperty);
             
                     const roomba = new Roomba(this.scene, value.x, value.y, directionProperty.value);
                     this.scene.matter.add.sprite(roomba);
