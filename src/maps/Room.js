@@ -33,10 +33,16 @@ export default class {
     }
 
     render() {
-        const target = this.showRoom ? 0 : 1;
+        const target = (this.showRoom || this.forceReveal) ? 0 : 1;
         this.shownAlpha += (target - this.shownAlpha) * 0.2;
         this.graphics.fillStyle(0x26243c, this.shownAlpha);
 
         this.graphics.fillRectShape(this.overlay);
+    }
+
+    triggerInteractable(indexOfInteractable){
+      const interactable = this.interactables[indexOfInteractable];
+      console.log(interactable);
+      interactable.trigger();
     }
 }

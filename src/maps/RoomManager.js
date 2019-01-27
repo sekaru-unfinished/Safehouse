@@ -51,6 +51,19 @@ export default class{
 		for(const room of this.rooms){
 			room.render();
 		}
-	}
+  }
+  
+  triggerInteractionForRoom(roomId, indexOfInteractable){
+    const room = this.rooms.find((room) => room.id === roomId);
+    room.triggerInteractable(indexOfInteractable);
+  }
+
+  toggleLightForRoom(roomId){
+    for(let room of this.rooms){
+      room.forceReveal = false;
+    }
+    this.rooms[roomId].forceReveal = !this.rooms[roomId].forceReveal;
+    console.log(this.rooms[roomId].forceReveal);
+  }
 
 }

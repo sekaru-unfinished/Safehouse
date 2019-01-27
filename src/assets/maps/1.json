@@ -133,23 +133,6 @@
                  "y":158
                 }, 
                 {
-                 "height":0,
-                 "id":18,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"room",
-                         "type":"int",
-                         "value":4
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":297.5,
-                 "y":201
-                }, 
-                {
                  "height":165.333333333333,
                  "id":19,
                  "name":"",

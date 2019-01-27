@@ -5,7 +5,6 @@ export default class extends Phaser.Physics.Matter.Sprite {
     super(config.scene.matter.world, config.x, config.y, config.key);
         this.scene = config.scene;
         this.type = config.key;
-        console.log(config.key)
 
         this.scene.add.existing(this);
     }
