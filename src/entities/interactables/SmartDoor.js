@@ -9,7 +9,7 @@ export default class extends Interactable{
     this.originalX = x;
 	}
 
-	trigger(){
+	trigger(icon){
     this.triggered = !this.triggered;
     this.doneAnimating = false;
         this.scene.tweens.add({
@@ -19,7 +19,13 @@ export default class extends Interactable{
 	        duration: 150,
 	        onComplete: () => this.doneAnimating = true,
 	        onCompleteParams: [this]
-	    });
+      });
+      
+      if(this.triggered) {
+        icon.setTexture('lock_on');
+      } else {
+        icon.setTexture('lock_off');        
+      }
   }
 
   closed() {

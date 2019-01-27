@@ -40,9 +40,9 @@ export default class {
         this.graphics.fillRectShape(this.overlay);
     }
 
-    triggerInteractable(indexOfInteractable){
+    triggerInteractable(indexOfInteractable, icon){
       const interactable = this.interactables[indexOfInteractable];
-      interactable.trigger();
+      interactable.trigger(icon);
     }
 
     triggerLureForRoom(indexOfInteractable, enemies){

@@ -134,8 +134,7 @@ export default class UI extends Phaser.Scene {
     icon.setInteractive().setOrigin(0, 0);
     icon.on('pointerdown', (pointer, x, y, event) => {
       let gameScene = this.scene.manager.getScene('Game');
-      gameScene.mapManager.getRoomManager().triggerInteractionForRoom(roomId, indexOfInteractable);
-      icon.setTexture('lock_on')
+      gameScene.mapManager.getRoomManager().triggerInteractionForRoom(roomId, indexOfInteractable, icon);
     });
 
     return icon;
@@ -165,6 +164,7 @@ export default class UI extends Phaser.Scene {
       }, 1000);
 
       setTimeout(() => {
+        icon.setTexture('speaker_off');
         clearInterval(timer);
       }, 5000);
      
