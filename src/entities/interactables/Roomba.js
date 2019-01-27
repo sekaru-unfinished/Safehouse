@@ -19,10 +19,9 @@ export default class extends Interactable{
 				this.down = true;
 		}
 
-		// this.triggered();
 	}
 
-	triggered(){
+	trigger(){
 		// Send the roomba into the direction
 		if(this.up){
 			this.setVelocityY(-this.speed);

@@ -29,8 +29,8 @@ window.onload = () => {
 
   new Phaser.Game(config);
 
-  resize();
-  window.addEventListener("resize", resize, false);
+  // resize();
+  // window.addEventListener("resize", resize, false);
 }
 
 function resize() {

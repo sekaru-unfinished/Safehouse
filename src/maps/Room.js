@@ -18,14 +18,14 @@ export default class {
 
     shouldRoomRevealForPlayer(player) {
         if (Phaser.Geom.Rectangle.Overlaps(player.getBounds(), this.overlay)) {
-            this.showRoom = false;
-        } else {
             this.showRoom = true;
+        } else {
+            this.showRoom = false;
         }
     }
 
     addInteractableIfCollides(interactable){
-    	if(interactable){
+    	if(interactable){   
 	    	if (Phaser.Geom.Rectangle.Overlaps(interactable.getBounds(), this.overlay)) {
             	this.interactables.push(interactable);
         	}
@@ -33,10 +33,15 @@ export default class {
     }
 
     render() {
-        const target = this.showRoom ? 1 : 0;
+        const target = (this.showRoom || this.forceReveal) ? 0 : 1;
         this.shownAlpha += (target - this.shownAlpha) * 0.2;
         this.graphics.fillStyle(0x26243c, this.shownAlpha);
 
         this.graphics.fillRectShape(this.overlay);
+    }
+
+    triggerInteractable(indexOfInteractable){
+      const interactable = this.interactables[indexOfInteractable];
+      interactable.trigger();
     }
 }

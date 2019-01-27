@@ -1,23 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg viewBox="0 0 63.329 75.43" width="63.329" height="75.43" xmlns="http://www.w3.org/2000/svg">
-  <g style="" transform="matrix(0.78287, 0, 0, 0.78287, -512.143494, -121.040565)">
-    <circle style="fill: none; stroke: rgb(204, 204, 204); stroke-width: 3.83205px;" cx="694.733" cy="210.281" r="34.159"/>
-    <g transform="matrix(1, 0, 0, 0.958837, 3.232517, 6.62725)" style="">
-      <rect x="685.272" y="168.664" width="12.457" height="8.755" style="fill: rgb(204, 204, 204);"/>
-      <rect x="690" y="160.998" width="3" height="12.92" style="stroke-width: 1.02101px; fill: rgb(204, 204, 204);"/>
-    </g>
-    <g transform="matrix(1, 0, 0, 1, -0.661526, 5.28101)">
-      <circle style="fill: rgb(204, 204, 204);" cx="674.973" cy="205" r="5"/>
-      <circle style="fill: rgb(204, 204, 204);" cx="689.155" cy="205" r="5"/>
-      <circle style="fill: rgb(204, 204, 204);" cx="702.091" cy="205" r="5"/>
-      <circle style="fill: rgb(204, 204, 204);" cx="715.816" cy="205" r="5"/>
-    </g>
-    <g transform="matrix(1, 0, 0, 0.958837, 95.448286, 333.841545)" style=""/>
-    <path style="stroke: rgb(0, 0, 0); fill: none; stroke-width: 3.83205px;" transform="matrix(0.9999475367108638, -0.010243233174904323, 0.010243233174904323, 0.9999475367108638, -6.240097198473222, 12.36621076678756)"/>
-    <path style="stroke: rgb(0, 0, 0); fill: none; stroke-width: 3.83205px;" transform="matrix(0.9999475367108638, -0.010243233174904323, 0.010243233174904323, 0.9999475367108638, -6.240097198473222, 12.36621076678756)"/>
-    <path style="stroke: rgb(0, 0, 0); fill: none; stroke-width: 3.83205px;" transform="matrix(0.9999475367108638, -0.010243233174904323, 0.010243233174904323, 0.9999475367108638, -6.240097198473222, 12.36621076678756)"/>
-  </g>
-  <g style="" transform="matrix(0.78287, 0, 0, 0.78287, -512.143494, -121.040565)">
+<svg viewBox="-7.176 -8.758 100 100" xmlns="http://www.w3.org/2000/svg">
+  <g style="" transform="matrix(0.78287, 0, 0, 0.78287, -501.061554, -117.460648)">
     <circle style="fill: none; stroke: rgb(204, 204, 204); stroke-width: 3.83205px;" cx="694.733" cy="210.281" r="34.159"/>
     <g transform="matrix(1, 0, 0, 0.958837, 3.232517, 6.62725)" style="">
       <rect x="685.272" y="168.664" width="12.457" height="8.755" style="fill: rgb(204, 204, 204);"/>

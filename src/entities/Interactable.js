@@ -2,9 +2,9 @@
 export default class extends Phaser.Physics.Matter.Sprite {
     
     constructor(config) {
-		super(config.scene.matter.world, config.x, config.y, config.key);
+    super(config.scene.matter.world, config.x, config.y, config.key);
         this.scene = config.scene;
-        this.type = config.type;
+        this.type = config.key;
 
         this.scene.add.existing(this);
     }
