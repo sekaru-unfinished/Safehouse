@@ -32,10 +32,9 @@ export default class Menu extends Phaser.Scene {
     graphics.fillStyle(0x2f4f4f, 1);
     graphics.fillRect(0, 0, width, height);
 
-    this.text = this.add.text(textXPosition, 150, "SAFEHOUSE", {
-        font: '50px Courier',
-        fill: '#ffffff'
-    });
+    this.logo = this.add.image(0, 100, 'logo');
+    this.logo.setScale(2);
+    this.logo.x = width / 2 - this.logo.w / 2;
 
     let tutText = "Controls:\n---------\nUse the arrow keys to move around.\nPress space to toggle your phone and control your home.\n\nObjective:\n----------\nTrap, incapacitate or injure the intruders to complete each level.";
     this.tutorial = this.add.text(textXPosition, 400, tutText, {
@@ -48,7 +47,6 @@ export default class Menu extends Phaser.Scene {
         fill: '#ffffff'
     });
 
-    this.text.setOrigin(0.5);
     this.tutorial.setOrigin(0.5);
     this.textPlay.setOrigin(0.5);
 

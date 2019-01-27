@@ -21,30 +21,11 @@ window.onload = () => {
             gravity: {
                 y: 0
             },
-            debug: true
+            // debug: true
         }
     },
     pixelArt: true
   };
 
   new Phaser.Game(config);
-
-  // resize();
-  // window.addEventListener("resize", resize, false);
-}
-
-function resize() {
-  let canvas = document.querySelector("canvas");
-  const windowWidth = window.innerWidth;
-  const windowHeight = window.innerHeight;
-  const windowRatio = windowWidth / windowHeight;
-  const gameRatio = width / height;
-
-  if (windowRatio < gameRatio) {
-    canvas.style.width = windowWidth + "px";
-    canvas.style.height = (windowWidth / gameRatio) + "px";
-  } else {
-    canvas.style.width = (windowHeight * gameRatio) + "px";
-    canvas.style.height = windowHeight + "px";
-  }
 }

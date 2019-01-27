@@ -13,6 +13,9 @@ import googleHome from "../assets/sprites/booglehome.png";
 export default class Game extends Phaser.Scene {
     constructor() {
         super('Game');
+
+        this.col = 20;
+        this.backgroundReverse = false;
     }
 
     preload() {
@@ -102,9 +105,28 @@ export default class Game extends Phaser.Scene {
 
     update() {
         this.mapManager.update();
+        this.handleBackground();
     }
 
     render(){
         this.mapManager.getRoomManager().render();
+    }
+
+    handleBackground() {
+      if(this.backgroundReverse) {
+        if(this.col <= 22) {
+          this.backgroundReverse = false;
+        }
+
+        this.col += (20 - this.col) * 0.05;
+      } else {
+        if(this.col >= 48) {
+          this.backgroundReverse = true;
+        }
+
+        this.col += (50 - this.col) * 0.05;
+      }
+
+      this.cameras.main.setBackgroundColor(new Phaser.Display.Color(this.col, this.col, this.col));
     }
 }
