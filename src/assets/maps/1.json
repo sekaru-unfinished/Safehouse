@@ -133,24 +133,7 @@
                  "y":158
                 }, 
                 {
-                 "height":0,
-                 "id":18,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"room",
-                         "type":"int",
-                         "value":4
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":297.5,
-                 "y":201
-                }, 
-                {
-                 "height":165.333333333333,
+                 "height":163.290719696969,
                  "id":19,
                  "name":"",
                  "properties":[
@@ -168,7 +151,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
